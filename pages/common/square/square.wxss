@@ -1,0 +1,65 @@
+.icon-img {
+    width: 65rpx;
+    height: 65rpx;
+    border-width: 2px;
+    border-color: #f00;
+  }
+  .title {
+    font-size: 0.8rem;
+  }
+  .square-border {
+    width: 100rpx;
+    height: 100rpx;
+    margin: 1rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .square-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5rpx;
+    padding-top: 5rpx;
+    background-color: #fff;
+  }
+  .square-date {
+    font-weight: bold;
+    font-size: 1.6rem;
+    color: #496069;
+  }
+  /* square end */
+  
+  .img-big {
+    display: block;
+    width: 100%;
+    height: 450rpx;
+    background-color: #eee;
+  }
+  .item-article {
+    background-color: #fff;
+  }
+  .com-desc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .com-title {
+    padding: 10rpx 10rpx 5rpx;
+    text-align: center;
+  }
+  .count-like {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #818C91;
+    padding: 5rpx 10rpx 10rpx;
+  }
+  .icon-like {
+    width: 1em;
+    height: 1em;
+    margin-right: 0.5em;
+  }

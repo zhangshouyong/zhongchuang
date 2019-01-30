@@ -1,0 +1,53 @@
+<!-- index.wxml -->
+<import src="/pages/common/square/square.wxml" />
+<import src='/pages/common/cell/cell' />
+<view class="container page-user">
+  <view bindtap="bindViewTap" class="userinfo btn-bg">
+    <view class="cell-left">
+      <open-data wx:if='{{userInfo.avatarUrl}}' class="userinfo-avatar" type="userAvatarUrl"></open-data>
+      <view style="flex-direction: row">
+        <view>
+          <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
+        </view>
+        <view wx:if="{{true}}" class="userinfo-nickname">
+          <text style="font-size: 13px">普通用户</text>
+        </view>
+        <view class="userinfo-nickname">
+          <text style="font-size: 13px">积分:0</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="kind-container row-list">
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/pArticle/pages/classification/index'>
+      <template is="square" data="{{imgUrl:'/assets/images/payment.png',title:'待付款'}}" />
+    </navigator>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/pMovie/pages/intheaters/in_theaters'>
+      <template is="square" data="{{imgUrl:'/assets/images/send_out_goods.png',title:'待发货'}}" />
+    </navigator>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/pMovie/pages/cards/card'>
+      <template is="square" data="{{imgUrl:'/assets/images/take_over_goods.png',title:'待收货'}}" />
+    </navigator>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/pMovie/pages/cards/card'>
+      <template is="square" data="{{imgUrl:'/assets/images/finish.png',title:'已完成'}}" />
+    </navigator>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/pMovie/pages/cards/card'>
+      <template is="square" data="{{imgUrl:'/assets/images/cart.png',title:'购物车'}}" />
+    </navigator>
+  </view>
+  <view class='row-list'>
+    <template is='row-cell' data='{{iconPath:"/assets/images/order.png",title:"全部订单",bindTap:"toFavMovieList"}}' />
+    <template is='row-cell' data='{{iconPath:"/assets/images/news.png",title:"站内信息",bindTap:"toFavCards"}}' />
+    <button class='contactBtn' open-type='share' hover-class='none'>
+      <template is='row-cell' data='{{iconPath:"/assets/images/address.png",title:"地址管理"}}' />
+    </button>
+    <template is='row-cell' data='{{iconPath:"/assets/images/mall.png",title:"共享商城",bindTap:"toEvalute"}}' />
+    <button class='contactBtn' open-type='contact' hover-class='none' show-message-card bindtap='onContactTap'>
+      <template is='row-cell' data='{{iconPath:"/assets/images/sale.png",title:"分销中心"}}' />
+    </button>
+    <template is='row-cell' data='{{iconPath:"/assets/images/coupon.png",title:"我的优惠券",bindTap:"toSetting"}}' />
+  </view>
+  <view class='btn-bg log-out' bindtap='logout'>
+    <text>退出登录</text>
+  </view>
+</view>

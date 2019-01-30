@@ -1,0 +1,77 @@
+{
+  "pages": [
+    "pages/splash/splash",
+    "pages/tabs/discovery/discovery",
+    "pages/tabs/index/index",
+    "pages/tabs/movies/movies",
+    "pages/setting/setting",
+    "pages/marked/marked",
+    "pages/search/search",
+    "pages/about/index",
+    "pages/first/first",
+    "pages/webview/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#496069",
+    "navigationBarTitleText": "众创商城",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f7f7f7"
+  },
+  "tabBar": {
+    "color": "#496069",
+    "selectedColor": "#000",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/tabs/discovery/discovery",
+        "text": "首页",
+        "iconPath": "assets/images/home_2.png",
+        "selectedIconPath": "assets/images/home_1.png"
+      },
+      {
+        "pagePath": "pages/tabs/movies/movies",
+        "text": "购物车",
+        "iconPath": "assets/images/cart_2.png",
+        "selectedIconPath": "assets/images/cart_1.png"
+      },
+      {
+        "pagePath": "pages/tabs/index/index",
+        "text": "个人中心",
+        "iconPath": "assets/images/tab_usercenter_unchecked.png",
+        "selectedIconPath": "assets/images/tab_usercenter_checked.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "pages/pArticle/",
+      "pages": [
+        "pages/classification/index",
+        "pages/list/list",
+        "pages/details/detail"
+      ]
+    },
+    {
+      "root": "pages/pMovie/",
+      "pages": [
+        "pages/cards/card",
+        "pages/details/movieDetails",
+        "pages/intheaters/in_theaters",
+        "pages/sources/sources",
+        "pages/trailers/trailers"
+      ]
+    },
+    {
+      "root": "pages/pUser/",
+      "pages": [
+        "pages/favMovieList/index",
+        "pages/bindphone/index",
+        "pages/evaluate/evaluate",
+        "pages/favCards/index",
+        "pages/userinfo/userinfo"
+      ]
+    }
+  ]
+}

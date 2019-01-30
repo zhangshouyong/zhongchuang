@@ -1,0 +1,9 @@
+<template name="square">
+    <view class="square-container btn-bg">
+        <view class="square-border">
+            <image wx:if="{{imgUrl}}" class="icon-img" src="{{imgUrl}}" mode="aspectFit" />
+            <text class="square-date">{{date}}</text>
+        </view>
+        <text class="title">{{title}}</text>
+    </view>
+</template>
