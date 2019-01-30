@@ -39,8 +39,8 @@
       {
         "pagePath": "pages/tabs/index/index",
         "text": "个人中心",
-        "iconPath": "assets/images/tab_usercenter_unchecked.png",
-        "selectedIconPath": "assets/images/tab_usercenter_checked.png"
+        "iconPath": "assets/images/self_2.png",
+        "selectedIconPath": "assets/images/self_1.png"
       }
     ]
   },
