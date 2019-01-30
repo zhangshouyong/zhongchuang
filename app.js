@@ -27,8 +27,8 @@ App({
     },
 
     onLaunch() {
-        this.getSetting()
-        this.getDefaultConfig()
+        //this.getSetting()
+        //this.getDefaultConfig()
     },
 
     /**

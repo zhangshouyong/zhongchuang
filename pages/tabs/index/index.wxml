@@ -19,19 +19,19 @@
     </view>
   </view>
   <view class="kind-container row-list">
-    <navigator class='item-container' hover-class='hover-bg' url='/pages/pArticle/pages/classification/index'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order'>
       <template is="square" data="{{imgUrl:'/assets/images/payment.png',title:'待付款'}}" />
     </navigator>
-    <navigator class='item-container' hover-class='hover-bg' url='/pages/pMovie/pages/intheaters/in_theaters'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order'>
       <template is="square" data="{{imgUrl:'/assets/images/send_out_goods.png',title:'待发货'}}" />
     </navigator>
-    <navigator class='item-container' hover-class='hover-bg' url='/pages/pMovie/pages/cards/card'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order'>
       <template is="square" data="{{imgUrl:'/assets/images/take_over_goods.png',title:'待收货'}}" />
     </navigator>
-    <navigator class='item-container' hover-class='hover-bg' url='/pages/pMovie/pages/cards/card'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order'>
       <template is="square" data="{{imgUrl:'/assets/images/finish.png',title:'已完成'}}" />
     </navigator>
-    <navigator class='item-container' hover-class='hover-bg' url='/pages/pMovie/pages/cards/card'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/cart/cart'>
       <template is="square" data="{{imgUrl:'/assets/images/cart.png',title:'购物车'}}" />
     </navigator>
   </view>
