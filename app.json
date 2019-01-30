@@ -10,9 +10,9 @@
     "pages/about/index",
     "pages/first/first",
     "pages/webview/index",
-    "pages/cart/cart",
     "pages/order/order",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/cart/cart"
   ],
   "window": {
     "backgroundTextStyle": "dark",
