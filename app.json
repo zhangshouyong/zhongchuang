@@ -12,7 +12,12 @@
     "pages/webview/index",
     "pages/order/order",
     "pages/home/home",
-    "pages/cart/cart"
+    "pages/cart/cart",
+    "pages/sale/sale",
+    "pages/adress/adress",
+    "pages/news/news",
+    "pages/coupon/coupon",
+    "pages/buyvip/buyvip"
   ],
   "window": {
     "backgroundTextStyle": "dark",

@@ -7,16 +7,16 @@ Page({
 
   data: {
     version: app.globalData.version,
-    userInfo: {}
+    userInfo: {},
+    vip: false,
   },
-
   /**
    * 进入个人资料
    */
-  bindViewTap: function() {
+  bindViewTap: function () {
     const that = this;
     const { version, config } = app.globalData;
-    if(app.globalData.userInfo) {
+    if (app.globalData.userInfo) {
       if (version.versionCode > config.newestVersion) return;
       wx.navigateTo({
         url: '/pages/pUser/pages/userinfo/userinfo'
@@ -24,10 +24,10 @@ Page({
     } else {
       wx.getSetting({
         success: res => {
-          if(!res.authSetting['scope.userInfo']) {
+          if (!res.authSetting['scope.userInfo']) {
             wx.openSetting({
               success: res => {
-                if (res.authSetting['scope.userInfo']){
+                if (res.authSetting['scope.userInfo']) {
                   app.getUserInfo(userInfo => {
                     that.setData({ userInfo })
                   })
@@ -57,7 +57,7 @@ Page({
   /**
    * 去设置
    */
-  toSetting: function() {
+  toSetting: function () {
     wx.navigateTo({
       url: '/pages/setting/setting',
     })
@@ -66,7 +66,7 @@ Page({
   /**
    * 退出登录
    */
-  logout: function() {
+  logout: function () {
     wx.showModal({
       content: '确定要退出？',
       success: (res) => {
@@ -82,18 +82,18 @@ Page({
   /**
    * 关于
    */
-  toAbout: function() {
+  toAbout: function () {
     const { version, config } = app.globalData;
     if (version.versionCode <= config.newestVersion)
-    wx.navigateTo({
-      url: '/pages/about/index',
-    })
+      wx.navigateTo({
+        url: '/pages/about/index',
+      })
   },
 
   /**
    * 转发
    */
-  onShareAppMessage: function(opt) {
+  onShareAppMessage: function (opt) {
     return {
       title: "好用得不得了",
       path: "/pages/discovery/discovery",
@@ -110,23 +110,76 @@ Page({
   /**
    * 我喜欢的影单
    */
-  toFavMovieList: function() {
+  toFavMovieList: function () {
     const { version, config } = app.globalData;
-    if(version.versionCode <= config.newestVersion)
+    if (version.versionCode <= config.newestVersion)
+      wx.navigateTo({
+        url: '/pages/pUser/pages/favMovieList/index',
+      })
+  },
+  /**
+   * 全部订单
+   */
+  toOrder: function () {
+    wx.navigateTo({ url: '/pages/order/order', })
+  },
+  /**
+   * 站内信息
+   */
+  toNews: function() {
     wx.navigateTo({
-      url: '/pages/pUser/pages/favMovieList/index',
+      url: '/pages/news/news',
     })
   },
-
+  /**
+   * 地址管理
+   */
+  toAdress: function() {
+    wx.navigateTo({
+      url: '/pages/adress/adress',
+    })
+  },
+  /**
+   * 共享商城
+   */
+  toHome: function() {
+    wx.switchTab({
+      url: '/pages/home/home',
+    })
+  },
+  /**
+   * 分销中心
+   */
+  toSale: function() {
+    wx.navigateTo({
+      url: '/pages/sale/sale',
+    })
+  },
+  /**
+   * 成为分销商
+   */
+  toBuyVip: function() {
+    wx.navigateTo({
+      url: '/pages/buyvip/buyvip',
+    })
+  },
+  /**
+   * 我的优惠券
+   */
+  toCoupon: function() {
+    wx.navigateTo({
+      url: '/pages/coupon/coupon',
+    })
+  },
   /**
    * 我喜欢的卡片
    */
-  toFavCards: function() {
+  toFavCards: function () {
     const { version, config } = app.globalData;
     if (version.versionCode <= config.newestVersion)
-    wx.navigateTo({
-      url: '/pages/pUser/pages/favCards/index',
-    })
+      wx.navigateTo({
+        url: '/pages/pUser/pages/favCards/index',
+      })
   },
 
   /**

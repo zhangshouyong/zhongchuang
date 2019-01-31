@@ -1,0 +1,10 @@
+<!--pages/buyvip/buyvip.wxml-->
+<view class="page-section page-section-spacing swiper">
+  <swiper indicator-dots="true" autoplay="{{true}}" circular="true" vertical="{{false}}" interval="2000" duration="500" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+    <block wx:for="{{background}}" wx:key="*this">
+      <swiper-item>
+        <view class="swiper-item {{item}}"></view>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
