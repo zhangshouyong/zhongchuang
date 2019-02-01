@@ -80,17 +80,6 @@ Page({
   },
 
   /**
-   * 关于
-   */
-  toAbout: function () {
-    const { version, config } = app.globalData;
-    if (version.versionCode <= config.newestVersion)
-      wx.navigateTo({
-        url: '/pages/about/index',
-      })
-  },
-
-  /**
    * 转发
    */
   onShareAppMessage: function (opt) {

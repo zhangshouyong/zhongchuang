@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentTab: 0,
   },
 
   /**
@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      tabIndex: options.tabIndex
+      currentTab: options.id
     });
   },
 
@@ -64,5 +64,19 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  swichNav: function (e) {
+
+    var that = this;
+
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+
+  },
 })

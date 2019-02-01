@@ -7,7 +7,6 @@
     "pages/setting/setting",
     "pages/marked/marked",
     "pages/search/search",
-    "pages/about/index",
     "pages/first/first",
     "pages/webview/index",
     "pages/order/order",
@@ -17,7 +16,8 @@
     "pages/adress/adress",
     "pages/news/news",
     "pages/coupon/coupon",
-    "pages/buyvip/buyvip"
+    "pages/buyvip/buyvip",
+    "dist/loadmore/index"
   ],
   "window": {
     "backgroundTextStyle": "dark",

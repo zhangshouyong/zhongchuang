@@ -10,10 +10,24 @@ Page({
     vertical: false,
     autoplay: true,
     circular: true,
-    interval: 2000,
-    duration: 500,
     previousMargin: 0,
-    nextMargin: 0
+    nextMargin: 0,
+    img_urls: [
+      "/assets/images/jiu_1.jpg",
+      "/assets/images/jiu_2.jpg",
+      "/assets/images/jiu_3.jpg",
+      "/assets/images/jiu_4.jpg",
+    ],
+    interval: 5000,
+    duration: 1000,
+    num: 1,
+    goodsList: {
+      saveHidden: true,
+      totalPrice: 0,
+      allSelect: true,
+      noSelect: false,
+      list: []
+    },
   },
 
   /**
@@ -37,6 +51,24 @@ Page({
 
   },
 
+  jiaBtnTap: function (e) {
+    console.log('jiaBtn');
+    let count = this.data.num + 1;
+    this.setData({
+      num: count
+    });
+  },
+
+  jianBtnTap: function (e) {
+    let count = this.data.num;
+    if (count <= 1) {
+      return;
+    }
+    count--;
+    this.setData({
+      num: count
+    });
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

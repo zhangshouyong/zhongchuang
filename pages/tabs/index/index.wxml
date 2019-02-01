@@ -22,16 +22,16 @@
     </view>
   </view>
   <view class="kind-container row-list">
-    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order?tabIndex=1'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order?id=1'>
       <template is="square" data="{{imgUrl:'/assets/images/payment.png',title:'待付款'}}" />
     </navigator>
-    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order?tabIndex=2'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order?id=2'>
       <template is="square" data="{{imgUrl:'/assets/images/send_out_goods.png',title:'待发货'}}" />
     </navigator>
-    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order?tabIndex=3'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order?id=3'>
       <template is="square" data="{{imgUrl:'/assets/images/take_over_goods.png',title:'待收货'}}" />
     </navigator>
-    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order?tabIndex=4'>
+    <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order?id=4'>
       <template is="square" data="{{imgUrl:'/assets/images/finish.png',title:'已完成'}}" />
     </navigator>
   </view>
