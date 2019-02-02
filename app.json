@@ -17,7 +17,8 @@
     "pages/news/news",
     "pages/coupon/coupon",
     "pages/buyvip/buyvip",
-    "pages/payorder/payorder"
+    "pages/payorder/payorder",
+    "pages/good/good"
   ],
   "window": {
     "backgroundTextStyle": "dark",
