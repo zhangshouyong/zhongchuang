@@ -71,7 +71,7 @@
   <view class="takeBill bdt">
     <view class="icon-wrap" bindtap="index">
       <view class="zan-icon zan-icon-home" style="font-size: 36rpx"></view>
-      <view class=s tyle="font-size: 22rpx;">首页</view>
+      <view class="" style="font-size: 22rpx;">首页</view>
     </view>
     <view class="icon-wrap" bindtap="cart">
       <view class="red-dot" wx:if="{{cartResult}}"></view>
