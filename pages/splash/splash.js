@@ -14,9 +14,9 @@ Page({
   onLoad: function (options) {
     setTimeout(() => {
       wx.switchTab({
-        url: '/pages/tabs/index/index',
+        //url: '/pages/tabs/index/index',
+        url: '/pages/my/my',
       })
     },1500)
   },
-
 })

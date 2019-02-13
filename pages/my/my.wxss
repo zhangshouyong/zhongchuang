@@ -1,4 +1,6 @@
+/**index.wxss**/
 @import '/pages/common/cell/cell';
+@import "/pages/common/square/square.wxss";
 
 .userinfo {
   display: flex;
@@ -85,19 +87,4 @@
 .article-item-container {
   margin-top: 15rpx;
   border-bottom: 0.5px solid #ddd;
-}
-
-.commission {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 30rpx;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  justify-content: space-between;
-  background-color: #fff;
-}
-.commission .cell-left {
-  display: flex;
-  flex-direction:column;
 }

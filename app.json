@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/splash/splash",
+    "pages/my/my",
     "pages/tabs/discovery/discovery",
     "pages/tabs/index/index",
     "pages/tabs/movies/movies",
@@ -45,7 +46,7 @@
         "selectedIconPath": "assets/images/cart_1.png"
       },
       {
-        "pagePath": "pages/tabs/index/index",
+        "pagePath": "pages/my/my",
         "text": "个人中心",
         "iconPath": "assets/images/self_2.png",
         "selectedIconPath": "assets/images/self_1.png"

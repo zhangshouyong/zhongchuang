@@ -16,10 +16,10 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     let size = 0;
     wx.getStorageInfo({
-      success: function (res) {
+      success: function(res) {
         size = res.currentSize;
       },
     })
@@ -32,13 +32,17 @@ Page({
   /**
    * 通知开关
    */
-  switchNotice: function (event) {
+  switchNotice: function(event) {
     const _this = this;
     wx.setStorage({
       key: 'setting',
-      data: { ...app.globalData.setting, notice: event.detail.value },
+      data: { ...app.globalData.setting,
+        notice: event.detail.value
+      },
       success: () => {
-        app.globalData.setting = { ...app.globalData.setting, notice: event.detail.value };
+        app.globalData.setting = { ...app.globalData.setting,
+          notice: event.detail.value
+        };
         _this.setData({
           notice: event.detail.value
         })
@@ -49,7 +53,7 @@ Page({
   /**
    * 清除缓存
    */
-  clearCache: function () {
+  clearCache: function() {
     Storage.clear()
     wx.showToast({
       title: '已清除',

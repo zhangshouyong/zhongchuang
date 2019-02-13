@@ -21,6 +21,7 @@
       </view>
     </view>
   </view>
+  
   <view class="kind-container row-list">
     <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order?id=1'>
       <template is="square" data="{{imgUrl:'/assets/images/payment.png',title:'待付款'}}" />
@@ -36,7 +37,6 @@
     </navigator>
   </view>
   <view class='row-list'>
-    <template is='row-cell' data='{{iconPath:"/assets/images/sale.png",title:"成为分销商",bindTap:"toBuyVip"}}' />
     <template wx:if="{{vip}}" is='row-cell' data='{{iconPath:"/assets/images/sale.png",title:"分销中心",bindTap:"toSale"}}' />
     <template wx:else is='row-cell' data='{{iconPath:"/assets/images/sale.png",title:"成为分销商",bindTap:"toBuyVip"}}' />
     <template is='row-cell' data='{{iconPath:"/assets/images/order.png",title:"全部订单",bindTap:"toOrder"}}' />
@@ -44,5 +44,6 @@
     <template is='row-cell' data='{{iconPath:"/assets/images/address.png",title:"地址管理",bindTap:"toAdress"}}' />
     <template is='row-cell' data='{{iconPath:"/assets/images/news.png",title:"站内信息",bindTap:"toNews"}}' />
     <template is='row-cell' data='{{iconPath:"/assets/images/coupon.png",title:"我的优惠券",bindTap:"toCoupon"}}' />
+    <template is='row-cell' data='{{iconPath:"/assets/images/setting.png",title:"设置",bindTap:"toSetting"}}' />
   </view>
 </view>

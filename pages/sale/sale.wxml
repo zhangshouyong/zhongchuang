@@ -1,2 +1,41 @@
 <!--pages/sale/sale.wxml-->
-<text>pages/sale/sale.wxml</text>
+<import src='/pages/common/cell/cell' />
+<view class="container page-user">
+  <view bindtap="bindViewTap" class="userinfo btn-bg">
+    <view class="cell-left">
+      <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+      <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
+    </view>
+  </view>
+
+  <view class='commission btn-bg'>
+    <view class='cell-left'>
+      <text>累计佣金</text>
+      <text>￥ 422.00</text>
+    </view>
+    <view class='cell-left' style=''>
+      <text>累计销售额</text>
+      <text>￥ 1688.00</text>
+    </view>
+  </view>
+  <view class='userinfo btn-bg'>
+    <view>
+      <text>我的团队</text>
+      <text>￥ 422.00</text>
+    </view>
+    <view>
+      <text>我的收入</text>
+      <text>￥ 1688.00</text>
+    </view>
+  </view>
+  <view class='userinfo btn-bg'>
+    <view>
+      <text>销售订单</text>
+      <text>￥ 422.00</text>
+    </view>
+    <view>
+      <text>分离二维码</text>
+      <text>￥ 1688.00</text>
+    </view>
+  </view>
+</view>

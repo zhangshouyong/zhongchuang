@@ -1,4 +1,5 @@
 // pages/sale/sale.js
+var app = getApp()
 Page({
 
   /**
@@ -12,7 +13,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
 
+    app.getUserInfo(this.test).then(userInfo => {
+      //更新数据
+      wx.setNavigationBarTitle({
+        title: userInfo.nickName
+      })
+      console.log(userInfo)
+    })
   },
 
   /**
