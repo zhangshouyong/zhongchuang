@@ -103,6 +103,8 @@
   width: 500rpx;
   align-items: center;
   background-color: #F3A93B;
+  height: 140rpx;
+  justify-content: center;
 }
 
 .commission .team {
