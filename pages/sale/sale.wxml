@@ -23,7 +23,7 @@
     <view class='team' style='border-right: 1px solid #ddd'>
       <view style='display: flex; flex-direction: row; justify-content: space-between'>
         <view style='width: 65rpx;height: 65rpx;margin-right:15rpx;'>
-          <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/payment.png" mode="aspectFit" />
+          <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/order.png" mode="aspectFit" />
         </view>
 
         <view style='display: flex;flex-direction: column;justify-content:center'>
@@ -35,7 +35,7 @@
     <view class='team' style='flex-direction: column'>
       <view style='display: flex; flex-direction: row; justify-content: space-between'>
         <view style='width: 65rpx;height: 65rpx;margin-right:15rpx;'>
-          <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/payment.png" mode="aspectFit" />
+          <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/income.png" mode="aspectFit" />
         </view>
 
         <view style='display: flex;flex-direction: column;justify-content:center'>
@@ -50,7 +50,7 @@
   <view class='team' style='border-right: 1px solid #ddd'>
       <view style='display: flex; flex-direction: row; justify-content: space-between'>
         <view style='width: 65rpx;height: 65rpx;margin-right:15rpx;'>
-          <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/payment.png" mode="aspectFit" />
+          <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/team.png" mode="aspectFit" />
         </view>
 
         <view style='display: flex;flex-direction: column;justify-content:center'>
@@ -62,7 +62,7 @@
     <view class='team' style='flex-direction: column'>
       <view style='display: flex; flex-direction: row; justify-content: space-between'>
         <view style='width: 65rpx;height: 65rpx;margin-right:15rpx;'>
-          <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/payment.png" mode="aspectFit" />
+          <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/two.png" mode="aspectFit" />
         </view>
 
         <view style='display: flex;flex-direction: column;justify-content:center'>
