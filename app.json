@@ -2,13 +2,10 @@
   "pages": [
     "pages/splash/splash",
     "pages/my/my",
-    "pages/tabs/discovery/discovery",
     "pages/tabs/index/index",
     "pages/tabs/movies/movies",
     "pages/setting/setting",
-    "pages/marked/marked",
     "pages/search/search",
-    "pages/webview/index",
     "pages/order/order",
     "pages/home/home",
     "pages/cart/cart",
@@ -54,33 +51,5 @@
     ]
   },
   "subPackages": [
-    {
-      "root": "pages/pArticle/",
-      "pages": [
-        "pages/classification/index",
-        "pages/list/list",
-        "pages/details/detail"
-      ]
-    },
-    {
-      "root": "pages/pMovie/",
-      "pages": [
-        "pages/cards/card",
-        "pages/details/movieDetails",
-        "pages/intheaters/in_theaters",
-        "pages/sources/sources",
-        "pages/trailers/trailers"
-      ]
-    },
-    {
-      "root": "pages/pUser/",
-      "pages": [
-        "pages/favMovieList/index",
-        "pages/bindphone/index",
-        "pages/evaluate/evaluate",
-        "pages/favCards/index",
-        "pages/userinfo/userinfo"
-      ]
-    }
   ]
 }
