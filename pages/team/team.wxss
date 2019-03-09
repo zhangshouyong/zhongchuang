@@ -1,0 +1,102 @@
+@import '/pages/common/cell/cell';
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20rpx;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.userinfo .cell-left {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.userinfo .cell-left .userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  background-color: #f7f7f7;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.userinfo .cell-left .userinfo-avatar>image {
+  width: 100%;
+  height: 100%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  margin-left: 30rpx;
+}
+
+.commission {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  justify-content: space-between;
+  background-color: #fff;
+}
+.commission .cell-left {
+  display: flex;
+  flex-direction:column;
+  width: 500rpx;
+  align-items: center;
+  background-color: #F3A93B;
+  height: 140rpx;
+  justify-content: center;
+}
+
+.commission .team {
+  display: flex;
+  flex-direction:column;
+  width: 500rpx;
+  align-items: center;
+  height: 110rpx;
+  justify-content: center;
+}
+
+.order {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-size: 24rpx;
+}
+
+.order-header {
+  background-color: lightgoldenrodyellow;
+  border-bottom: 1px solid #c8c8c8;
+  border-right: 1px solid #c8c8c8;
+  height: 80rpx;
+}
+
+.order-content {
+  border-bottom: 1px solid #c8c8c8;
+  border-right: 1px solid #c8c8c8;
+  color: #787878;
+  height: 60rpx;
+}
+.swiper-container {
+  display: flex;
+  flex: 1;
+}
+
+.income-op {
+  border: 1px solid #c8c8c8;
+  border-radius: 8rpx;
+  font-size: 20rpx;
+  padding-top: 8rpx;
+  padding-bottom: 8rpx;
+  padding-left: 8rpx;
+  padding-right: 8rpx;
+}

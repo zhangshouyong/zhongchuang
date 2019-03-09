@@ -15,6 +15,9 @@
     "pages/coupon/coupon",
     "pages/buyvip/buyvip",
     "pages/payorder/payorder",
+    "pages/income/income",
+    "pages/team/team",
+    "pages/two/two",
     "pages/good/good"
   ],
   "window": {
@@ -50,6 +53,5 @@
       }
     ]
   },
-  "subPackages": [
-  ]
+  "subPackages": []
 }

@@ -10,16 +10,11 @@ Page({
     userInfo: {},
     vip: true,
   },
-  /**
-   * 进入个人资料
-   */
-  bindViewTap: function () {
-
-  },
 
   test: function() {
     console.log("test-------->")
   },
+
   onLoad: function () {
     //调用应用实例的方法获取全局数据
     app.getUserInfo(this.test).then(userInfo => {
@@ -110,13 +105,4 @@ Page({
       url: '/pages/coupon/coupon',
     })
   },
-
-  /**
-   * 客服按钮监听
-   */
-  onContactTap() {
-    wx.setClipboardData({
-      data: '浪里个儿浪 浪里个儿浪 我要调戏你了',
-    })
-  }
 })

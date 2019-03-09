@@ -1,0 +1,19 @@
+<import src='/pages/common/cell/cell' />
+<view class="container page-user">
+  <view bindtap="bindViewTap" class="userinfo btn-bg">
+    <view class="cell-left">
+      <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+      <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
+    </view>
+  </view>
+
+  <view style='height: 20rpx;'></view>
+
+  <view class='two-img-container'>
+    <image
+          class='two-img'
+          mode="aspectFit"
+          src="../../assets/images/ZHEK.png"
+        ></image>
+  </view>
+</view>

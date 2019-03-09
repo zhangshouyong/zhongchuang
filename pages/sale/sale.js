@@ -6,14 +6,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    commission: 422.00,
+    totalSale: 1688.00,
+    orderCnt: 1,
+    income: 422.00,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    console.log(options);
 
     app.getUserInfo(this.test).then(userInfo => {
       //更新数据
@@ -71,5 +74,37 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  /**
+   * 我的销售订单
+   */
+  toMyPayOrder: function() {
+    wx.navigateTo({
+      url: '/pages/payorder/payorder',
+    });
+  },
+  /**
+   * 我的收入
+   */
+  toMyIncome: function() {
+    wx.navigateTo({
+      url: '/pages/income/income',
+    });
+  },
+  /**
+   * 我的团队
+   */
+  toMyTeam: function() {
+    wx.navigateTo({
+      url: '/pages/team/team',
+    });
+  },
+  /**
+   * 我的二维码
+   */
+  toMyTwo: function() {
+    wx.navigateTo({
+      url: '/pages/two/two',
+    });
   }
 })

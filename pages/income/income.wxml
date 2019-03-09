@@ -1,0 +1,51 @@
+<!--pages/income/income.wxml-->
+<import src='/pages/common/cell/cell' />
+<view class="container page-user">
+  <view bindtap="bindViewTap" class="userinfo btn-bg">
+    <view class="cell-left">
+      <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
+      <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
+    </view>
+  </view>
+
+  <view class='commission'>
+    <view class='cell-left' style='border-right: 1px solid #ddd'>
+      <text style='color: white;font-size: 30rpx'>累计佣金</text>
+      <text style='color: white; font-size: 35rpx;font-weight:bold'>￥ {{commission}}</text>
+    </view>
+    <view class='cell-left' style=''>
+      <text style='color: white; font-size: 30rpx'>累计销售额</text>
+      <text style='color: white; font-size: 35rpx;font-weight:bold'>￥ {{totalSale}}</text>
+    </view>
+  </view>
+<view style='height: 20rpx;'></view>
+  <view class="swiper-container">
+    <view class='order-header order'>收入类型</view>
+    <view class='order-header order'>收入金额（元）</view>
+    <view class='order-header order'>操作</view>
+  </view>
+
+  <view class="container">
+    <view class="swiper-container">
+      <view class='order-content order'>佣金余额</view>
+      <view class='order-content order'>{{subSommission}}</view>
+      <view class='order-content order'>
+        <view class='income-op'>查看详情</view>
+      </view>
+    </view>
+    <view class="swiper-container">
+      <view class='order-content order'>动态分红</view>
+      <view class='order-content order'>{{subActive}}</view>
+      <view class='order-content order'>
+        <view class='income-op'>查看详情</view>
+      </view>
+    </view>
+    <view class="swiper-container">
+      <view class='order-content order'>团队奖励</view>
+      <view class='order-content order'>{{subTeamReward}}</view>
+      <view class='order-content order'>
+        <view class='income-op'>查看详情</view>
+      </view>
+    </view>
+  </view>
+</view>

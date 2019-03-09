@@ -268,7 +268,6 @@ page {
   background: url(http://bmob-cdn-8770.b0.upaiyun.com/2017/03/01/d2c8205d404de1228042eff53f758aed.png) no-repeat left 12px;
   background-size: 100% auto;
   height: 40px;
-  position: relative;
 }
 
 .box-left .tips view {

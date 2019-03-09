@@ -11,28 +11,28 @@
   <view class='commission'>
     <view class='cell-left' style='border-right: 1px solid #ddd'>
       <text style='color: white;font-size: 30rpx'>累计佣金</text>
-      <text style='color: white; font-size: 35rpx;font-weight:bold'>￥ 422.00</text>
+      <text style='color: white; font-size: 35rpx;font-weight:bold'>￥ {{commission}}</text>
     </view>
     <view class='cell-left' style=''>
       <text style='color: white; font-size: 30rpx'>累计销售额</text>
-      <text style='color: white; font-size: 35rpx;font-weight:bold'>￥ 1688.00</text>
+      <text style='color: white; font-size: 35rpx;font-weight:bold'>￥ {{totalSale}}</text>
     </view>
   </view>
 
   <view class='commission btn-bg' style='margin-top: 10rpx; border-top: 0px solid #ddd;'>
-    <view class='team' style='border-right: 1px solid #ddd'>
-      <view style='display: flex; flex-direction: row; justify-content: space-between'>
+    <view class='team'  style='border-right: 1px solid #ddd'  bindtap='toMyPayOrder'>
+      <view style='display: flex; flex-direction: row; justify-content: space-between' >
         <view style='width: 65rpx;height: 65rpx;margin-right:15rpx;'>
           <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/order.png" mode="aspectFit" />
         </view>
 
         <view style='display: flex;flex-direction: column;justify-content:center'>
           <text style='font-size: 20rpx'>销售订单</text>
-          <text style='font-size: 20rpx'>1个</text>
+          <text style='font-size: 20rpx'>{{orderCnt}}个</text>
         </view>
       </view>
     </view>
-    <view class='team' style='flex-direction: column'>
+    <view class='team' style='flex-direction: column'  bindtap='toMyIncome'>
       <view style='display: flex; flex-direction: row; justify-content: space-between'>
         <view style='width: 65rpx;height: 65rpx;margin-right:15rpx;'>
           <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/income.png" mode="aspectFit" />
@@ -40,14 +40,14 @@
 
         <view style='display: flex;flex-direction: column;justify-content:center'>
           <text style='font-size: 20rpx'>我的收入</text>
-          <text style='font-size: 20rpx'>￥ 422.00</text>
+          <text style='font-size: 20rpx'>￥ {{income}}</text>
         </view>
       </view>
     </view>
   </view>
 
   <view class='commission btn-bg' style='border-bottom: 0px solid #ddd;border-top: 0px solid #ddd;'>
-  <view class='team' style='border-right: 1px solid #ddd'>
+  <view class='team' style='border-right: 1px solid #ddd' bindtap='toMyTeam'>
       <view style='display: flex; flex-direction: row; justify-content: space-between'>
         <view style='width: 65rpx;height: 65rpx;margin-right:15rpx;'>
           <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/team.png" mode="aspectFit" />
@@ -59,7 +59,7 @@
         </view>
       </view>
     </view>
-    <view class='team' style='flex-direction: column'>
+    <view class='team' style='flex-direction: column' bindtap='toMyTwo'>
       <view style='display: flex; flex-direction: row; justify-content: space-between'>
         <view style='width: 65rpx;height: 65rpx;margin-right:15rpx;'>
           <image class="icon-img" style='width: 65rpx;height: 65rpx;' src="/assets/images/two.png" mode="aspectFit" />

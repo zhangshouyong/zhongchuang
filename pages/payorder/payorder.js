@@ -4,16 +4,19 @@ var util = require("../../utils/util.js");
 var that;
 Page({
   data: {
-    showAddr: false,
-    showAddAddr: true,
-    totalMoney: 0,
-    goodMoney: 0,
-    price: 0,
-    showCoupon: false,
-    fare: 0.00,
-    allOrder: [],
-    couponid: "",
-    useCoupon: false,
+    currentTab: 0,
+    payMent: [{
+      name: 'zsy1',
+      commission: 422,
+      money: 1688,
+      date: '2019-03-09'
+    },
+      {
+        name: 'zsy2',
+        commission: 844,
+        money: 3376,
+        date: '2019-03-09'
+      }]
   },
   onShow() {
     let totalMoney = null;
@@ -311,6 +314,19 @@ Page({
 */
       }
     })
-  }
+  },
+  swichNav: function (e) {
+
+    var that = this;
+
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+
+  },
 
 });
