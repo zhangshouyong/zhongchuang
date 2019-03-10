@@ -18,8 +18,7 @@
     "pages/income/income",
     "pages/team/team",
     "pages/two/two",
-    "pages/good/good",
-    "pages/drawmoney/drawmoney"
+    "pages/good/good"
   ],
   "window": {
     "backgroundTextStyle": "dark",
