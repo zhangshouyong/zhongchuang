@@ -1,27 +1,18 @@
-// pages/income/income.js
-let app = getApp();
+// pages/drawmoney/drawmoney.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    commission: 0,
-    totalSale: 0,
-    subSommission: 200,
-    subActive: 1000,
-    subTeamReward: 500,
-    drawmoneyCnt: 0,
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      commission: app.getCommission(),
-      totalSale: app.getTotalSale(),
-    });
+
   },
 
   /**
@@ -71,28 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  /**
-   * 提现
-   */
-  toDrawMoney() {
-    wx.navigateTo({
-      url: '/pages/drawmoney/drawmoney',
-    });
-  },
-  /**
-   * 全部提现
-   */
-  drawmoneyAll: function() {
-    let count = this.data.subActive+this.data.subSommission+this.data.subTeamReward;
-    console.log('count-->' + count);
-    this.setData({
-      drawmoneyCnt: count,
-    });
-  },
-  setDrawmoney: function (e) {
-    this.setData({
-      // drawmoneyCnt: e.detail.value
-    })
   }
 })

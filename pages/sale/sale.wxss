@@ -91,35 +91,82 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   justify-content: space-between;
   background-color: #fff;
 }
+
 .commission .cell-left {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   width: 500rpx;
   align-items: center;
-  background-color: #F3A93B;
+  background-color: #f3a93b;
   height: 140rpx;
   justify-content: center;
 }
 
 .commission .team {
   display: flex;
-  flex-direction:column;
-  width: 500rpx;
+  flex-direction: column;
+  width: 100%;
   align-items: center;
   height: 110rpx;
   justify-content: center;
-  
 }
 
 .icon-img {
-    width: 65rpx;
-    height: 65rpx;
-    border-width: 2px;
-    border-color: #f00;
-  }
+  border-width: 2px;
+  border-color: #f00;
+}
+
+.icon-img-size {
+  width: 65rpx;
+  height: 65rpx;
+}
+
+.icon-view {
+  width: 65rpx;
+  height: 65rpx;
+  margin-right: 15rpx;
+}
+
+.view-row-container {
+  flex-direction: row;
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  height: 110rpx;
+}
+
+.view-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 110rpx;
+}
+
+.view-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.view-border-right {
+  border-right: 1px solid #ddd;
+}
+
+.text-font-size30 {
+  color: white;
+  font-size: 30rpx;
+}
+
+.text-font-size35 {
+  color: white;
+  font-size: 35rpx;
+  font-weight: bold;
+}

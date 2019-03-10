@@ -26,6 +26,8 @@ App({
     setting: {},
     config: null,
     published: false, // 是否为发布版
+    commission: 422,
+    totalSale: 1688,
   },
 
   onLaunch() {
@@ -33,6 +35,12 @@ App({
     //this.getDefaultConfig()
   },
 
+  getCommission(){
+    return this.globalData.commission;
+  },
+  getTotalSale() {
+    return this.globalData.totalSale;
+  },
   /**
    * 获取用户信息
    * 支持 callback 和 Promise
@@ -117,4 +125,5 @@ App({
       })
     }
   },
+  
 })

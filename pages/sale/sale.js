@@ -6,8 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    commission: 422.00,
-    totalSale: 1688.00,
+    commission: 0,
+    totalSale: 0,
     orderCnt: 1,
     income: 422.00,
   },
@@ -17,7 +17,12 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-
+    console.log('com->' + app.getCommission());
+    this.setData({
+      commission: app.getCommission(),
+      totalSale: app.getTotalSale(),
+    });
+    /*
     app.getUserInfo(this.test).then(userInfo => {
       //更新数据
       wx.setNavigationBarTitle({
@@ -25,6 +30,7 @@ Page({
       })
       console.log(userInfo)
     })
+    */
   },
 
   /**
@@ -52,7 +58,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+ 
   },
 
   /**

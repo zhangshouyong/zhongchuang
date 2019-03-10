@@ -117,3 +117,54 @@
   padding-left: 8rpx;
   padding-right: 8rpx;
 }
+
+.draw-money-view {
+  height: 40rpx;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding-left: 15rpx;
+  border: 1px solid white;
+  border-radius: 5rpx;
+}
+
+.draw-money {
+  display: flex;
+  align-items: center;
+  font-size: 24rpx;
+  border-bottom: 1px solid #c8c8c8;
+  padding-bottom: 10rpx;
+  padding-left: 10rpx;
+  margin-top: 20rpx;
+}
+
+.draw-money-all {
+  border: 1px solid #238e23;
+  background-color: #238e23;
+  border-radius: 8rpx;
+  font-size: 20rpx;
+  padding: 5rpx;
+  margin-left: 50rpx;
+  color: white;
+}
+
+.draw-money-input {
+  height: 40rpx;
+  min-height: 40rpx;
+  line-height: 40rpx;
+}
+
+.drawmoney-btn {
+  width: 50%;
+  display: flex;
+  border: 1px solid #238e23;
+  background-color: #238e23;
+  border-radius: 10rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  align-items: center;
+  justify-content: center;
+  margin-left: 180rpx;
+  margin-top: 50rpx;
+  color: white;
+}

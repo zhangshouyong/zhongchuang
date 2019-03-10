@@ -1,4 +1,5 @@
 // pages/team/team.js
+let app = getApp();
 Page({
 
   /**
@@ -21,7 +22,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      commission: app.getCommission(),
+      totalSale: app.getTotalSale(),
+    });
 
+    let that = this;
+    console.log("that---->" + that);
+    wx.request({
+      url: 'https://www.baidu.com',
+      success: function(res) {
+        console.log(res);
+        console.log("this----->" + this);
+      }
+    })
   },
 
   /**
