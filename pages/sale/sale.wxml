@@ -30,7 +30,7 @@
 
   <view class='view-row-container'>
     <navigator style='width: 50%' hover-class='hover-bg' url='/pages/payorder/payorder'>
-      <view class='team view-border-right'>
+      <view class='view-border-right'>
         <view class='view-row'>
           <view class='icon-view'>
             <image class="icon-img icon-img-size" src="/assets/images/order.png" mode="aspectFit" />
@@ -43,7 +43,7 @@
       </view>
     </navigator>
     <navigator style='width: 50%' hover-class='hover-bg' url='/pages/income/income'>
-      <view class='team' style='flex-direction: column'>
+      <view style='flex-direction: column'>
         <view class='view-row'>
           <view class='icon-view'>
             <image class="icon-img icon-img-size" src="/assets/images/income.png" mode="aspectFit" />
@@ -59,7 +59,7 @@
 
   <view class='view-row-container'>
     <navigator style='width: 50%; height: 110rpx;' hover-class='hover-bg' url='/pages/team/team'>
-      <view class='team view-border-right'>
+      <view class='view-border-right'>
         <view class='view-row'>
           <view class='icon-view'>
             <image class="icon-img icon-img-size" src="/assets/images/team.png" mode="aspectFit" />
@@ -71,7 +71,7 @@
       </view>
     </navigator>
     <navigator style='width: 50%;' hover-class='hover-bg' url='/pages/two/two'>
-      <view class='team' style='flex-direction: column'>
+      <view style='flex-direction: column'>
         <view class='view-row'>
           <view class='icon-view'>
             <image class="icon-img icon-img-size" src="/assets/images/two.png" mode="aspectFit" />

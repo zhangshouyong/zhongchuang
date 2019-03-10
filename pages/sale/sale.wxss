@@ -89,6 +89,7 @@
 
 .commission {
   display: flex;
+  flex: 1;
   flex-direction: row;
   align-items: center;
   border-top: 1px solid #ddd;
@@ -100,7 +101,7 @@
 .commission .cell-left {
   display: flex;
   flex-direction: column;
-  width: 500rpx;
+  width: 50%;
   align-items: center;
   background-color: #f3a93b;
   height: 140rpx;
