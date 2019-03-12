@@ -28,14 +28,113 @@ App({
     published: false, // 是否为发布版
     commission: 422,
     totalSale: 1688,
+    addrlist: [],
+    addrModify: false,
   },
 
   onLaunch() {
     //this.getSetting()
     //this.getDefaultConfig()
+    let addrData = this.readAddr();
+    console.log("addrData->"+addrData);
+    if (addrData.length == 0) {
+      for (let i = 0; i < 3; i++) {
+        this.globalData.addrlist.push({
+          id: i + 1,
+          name: '张守勇',
+          addr: '上海市普陀区古浪路355弄60号301室',
+          phone: '15900706861'
+        })
+       this.saveAddr();
+      }
+    }
   },
 
-  getCommission(){
+  getAddrlist() {
+    return this.globalData.addrlist;
+  },
+
+  getAddr(id) {
+    let list = this.globalData.addrlist;
+    for (let index in list) {
+      if (id == list[index].id) {
+        return list[index];
+      }
+    }
+  },
+
+  readAddr() {
+    let addrData = wx.getStorageSync("addrlist");
+    if('' === addrData) {
+      return []
+    }
+    return this.globalData.addrlist = JSON.parse(addrData);
+  },
+
+  saveAddr() {
+    this.globalData.addrModify = true;
+    wx.setStorageSync("addrlist", JSON.stringify(this.globalData.addrlist));
+  },
+
+  resetAddrModify() {
+    this.globalData.addrModify = false;
+  },
+
+  resetAddDefault() {
+    let list = this.globalData.addrlist;
+    for (let i in list) {
+      list[i].default = false;
+    }
+  },
+
+  isAddrModify() {
+    return this.globalData.addrModify;
+  },
+
+  getMaxAddrid() {
+    let list = this.globalData.addrlist;
+    let maxId = 1;
+    for (let i in list) {
+      if (maxId < list[i].id) {
+        maxId = list[i].id;
+      }
+    }
+    return maxId;
+  },
+
+  updateAddr(addr) {
+    let list = this.globalData.addrlist;
+    for (let index in list) {
+      if (addr.id == list[index].id) {
+        list[index] = addr;
+      }
+    }
+  },
+
+  addAddr(addr) {
+    console.log("addaddr->" + JSON.stringify(addr))
+    if (addr.id == 0) {
+      addr.id = this.getMaxAddrid()+1;
+      this.globalData.addrlist.push(addr);
+    } else {
+      let oldAddr = this.getAddr(addr.id);
+      console.log("oldaddr->" + JSON.stringify(oldAddr));
+      this.updateAddr(addr);
+      console.log("oldaddr2->" + JSON.stringify(oldAddr));
+      console.log("addd----" + JSON.stringify(this.getAddr(addr.id)))
+    }
+    this.saveAddr();
+  },
+  delAddr(id) {
+    let list = this.globalData.addrlist;
+    for (let index in list) {
+      if (id == list[index].id) {
+        this.globalData.addrlist.splice(index);
+      }
+    }
+    this.saveAddr();
+  },
+  getCommission() {
     return this.globalData.commission;
   },
   getTotalSale() {
@@ -125,5 +224,5 @@ App({
       })
     }
   },
-  
+
 })

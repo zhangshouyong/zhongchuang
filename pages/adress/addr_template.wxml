@@ -1,0 +1,8 @@
+<template name='addr-cell'>
+  <view class='view-addr'>
+    <view style='width: 15%'>{{name}}</view>
+    <view style='width: 60%'>{{addr}}</view>
+    <view style='width: 20%; '>{{phone}}</view>
+    <view class='arrow-right'></view>
+  </view>
+</template>

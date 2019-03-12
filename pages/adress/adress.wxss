@@ -1,1 +1,34 @@
-/* pages/adress/adress.wxss */
+.view-addr {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  padding-bottom: 10rpx;
+  height: 80rpx;
+  border-bottom: 1rpx solid #ddd;
+  font-size: 24rpx;
+  align-items: center;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.add-addr-view {
+  display: flex;
+  margin-top: 60rpx;
+  justify-content: center;
+  align-items: center;
+  height: 100rpx;
+  width: 100%;
+}
+
+.add-addr-btn {
+  display: flex;
+  border: 1rpx solid #3abb3a;
+  background-color: #3abb3a;
+  border-radius: 10rpx;
+  width: 60%;
+  height: 90rpx;
+  font-size: 30rpx;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,31 @@
+<view class='container'>
+  <view class='addr-row'>
+    <view class='addr-row-left'>姓名</view>
+    <view class='addr-row-right'>
+      <input class='addr-row-input' value='{{name}}' bindinput='nameInput'/>
+    </view>
+  </view>
+  <view class='addr-row'>
+    <view class='addr-row-left'>地址</view>
+    <view class='addr-row-right'>
+      <input class='addr-row-input' value='{{addr}}' bindinput='addrInput'/>
+    </view>
+  </view>
+  <view class='addr-row'>
+    <view class='addr-row-left'>电话</view>
+    <view class='addr-row-right'>
+      <input class='addr-row-input' value='{{phone}}' bindinput='phoneInput'/>
+    </view>
+  </view>
+</view>
+
+<view class='addr-row addr-switch'>
+  <view>
+    设为默认地址
+  </view>
+  <switch checked="{{default}}" bindchange='setDefault' />
+</view>
+<view class='addr-btns '>
+  <view class='addr-btn' bindtap='addAddr'>{{btnName}}</view>
+  <view wx:if='{{operate == 2}}' class='addr-btn' style='border: 1rpx solid red; background-color: red;' bindtap='delAddr'>删除</view>
+</view>

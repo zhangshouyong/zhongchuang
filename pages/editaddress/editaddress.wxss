@@ -1,0 +1,54 @@
+
+.addr-row {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15rpx;
+  height: 60rpx;
+  font-size: 24rpx;
+  align-items: center;
+  
+}
+
+.addr-row-left {
+  width: 80rpx;
+  margin-right: 20rpx;
+}
+
+.addr-row-right {
+  padding-top: 0;
+  padding-bottom: 0;
+ 
+}
+
+.addr-switch {
+  justify-content: space-between;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.addr-row-input {
+  width: 600rpx;
+   border-bottom: 1rpx solid #ddd;
+}
+
+.addr-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30rpx;
+  color: white;
+}
+
+.addr-btn {
+  display: flex;
+  padding: 10rpx;
+  justify-content: center;
+  align-items: center;
+  border: 1rpx solid #3abb3a;
+  border-radius: 10rpx;
+  background-color: #3abb3a;
+  margin-top: 20rpx;
+  width: 70%
+}

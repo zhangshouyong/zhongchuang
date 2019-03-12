@@ -18,6 +18,7 @@
     "pages/income/income",
     "pages/team/team",
     "pages/two/two",
+    "pages/editaddress/editaddress",
     "pages/good/good"
   ],
   "window": {

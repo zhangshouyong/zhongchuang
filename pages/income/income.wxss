@@ -139,8 +139,8 @@
 }
 
 .draw-money-all {
-  border: 1px solid #238e23;
-  background-color: #238e23;
+  border: 1px solid #3abb3a;
+  background-color: #3abb3a;
   border-radius: 8rpx;
   font-size: 20rpx;
   padding: 5rpx;
@@ -157,8 +157,8 @@
 .drawmoney-btn {
   width: 50%;
   display: flex;
-  border: 1px solid #238e23;
-  background-color: #238e23;
+  border: 1px solid #3abb3a;
+  background-color: #3abb3a;
   border-radius: 10rpx;
   height: 60rpx;
   font-size: 24rpx;
