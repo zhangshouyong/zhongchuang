@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentTab: 0,
   },
 
   /**
@@ -62,5 +62,16 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  swichNav: function (e) {
+    console.log(e)
+    var that = this;
+    if (that.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+  },
 })

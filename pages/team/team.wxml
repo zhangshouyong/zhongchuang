@@ -1,13 +1,5 @@
-<!--pages/income/income.wxml-->
 <import src='/pages/common/cell/cell' />
 <view class="container page-user">
-  <view bindtap="bindViewTap" class="userinfo btn-bg">
-    <view class="cell-left">
-      <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
-      <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
-    </view>
-  </view>
-
   <view class='commission'>
     <view class='cell-left' style='border-right: 1px solid #ddd'>
       <text style='color: white;font-size: 30rpx'>累计佣金</text>
@@ -24,11 +16,11 @@
     <view class='order-header order'>级别</view>
     <view class='order-header order'>注册时间</view>
   </view>
-      <view  wx:for="{{teams}}">
-        <view class="swiper-container">
-          <view class='order-content order'>{{item.name}}</view>
-          <view class='order-content order'>{{item.level==1 ? '经销商' : '普通粉丝'}}</view>
-          <view class='order-content order'>{{item.date}}</view>
-        </view>
-      </view>
+  <view wx:for="{{teams}}">
+    <view class="swiper-container">
+      <view class='order-content order'>{{item.name}}</view>
+      <view class='order-content order'>{{item.level==1 ? '经销商' : '普通粉丝'}}</view>
+      <view class='order-content order'>{{item.date}}</view>
+    </view>
+  </view>
 </view>

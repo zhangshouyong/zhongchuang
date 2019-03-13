@@ -1,1 +1,31 @@
-/* pages/coupon/coupon.wxss */
+.swiper-tab {
+  padding-top: 5px;
+  height: 20px;
+  padding: 10px 0;
+  background: #fff;
+  display: flex;
+  font-size: 17px;
+  line-height: 20px;
+  border-bottom: 1px solid #e6e6e6;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+.swiper-tab-list {
+  flex: 1;
+  text-align: center;
+  position: relative;
+  color: #787878;
+  font-size: 24rpx;
+}
+
+.swiper-tab-list {
+  border-left: 1px solid #c8c8c8;
+}
+
+.swiper-tab-list.on {
+  color: #fa4b22;
+}

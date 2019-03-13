@@ -17,7 +17,6 @@ Page({
    */
   onLoad: function (options) {
     console.log(options);
-    console.log('com->' + app.getCommission());
     this.setData({
       commission: app.getCommission(),
       totalSale: app.getTotalSale(),

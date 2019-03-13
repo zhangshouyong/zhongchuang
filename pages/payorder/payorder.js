@@ -1,5 +1,4 @@
 var common = require('../../utils/common.js');
-//var Bmob = require("../../utils/bmob.js");
 var util = require("../../utils/util.js");
 var that;
 Page({

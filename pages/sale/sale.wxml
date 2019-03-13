@@ -1,12 +1,5 @@
 <import src='/pages/common/cell/cell' />
 <view class="container page-user">
-  <view bindtap="bindViewTap" class="userinfo btn-bg">
-    <view class="cell-left">
-      <open-data class="userinfo-avatar" type="userAvatarUrl"></open-data>
-      <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
-    </view>
-  </view>
-
   <view class='commission'>
     <view class='cell-left view-border-right'>
       <text class='text-font-size30'>累计佣金</text>

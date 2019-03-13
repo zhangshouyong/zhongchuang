@@ -142,7 +142,7 @@ Page({
       icon: 'success',
       duration: 1500,
       success: function() {
-        setTimeout(function () {
+        setTimeout(function() {
           wx.navigateBack();
         }, 2000) //延迟时间
       }

@@ -3,6 +3,7 @@
     <view style='width: 15%'>{{name}}</view>
     <view style='width: 60%'>{{addr}}</view>
     <view style='width: 20%; '>{{phone}}</view>
-    <view class='arrow-right'></view>
+    <view wx:if="{{default}}"><icon class="icon-small" type="success_no_circle" size="23"></icon></view>
+    <view wx:else  class='arrow-right'></view>
   </view>
 </template>
