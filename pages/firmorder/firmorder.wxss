@@ -29,3 +29,75 @@
   width: 180rpx;
   height: 180rpx;
 }
+
+.submit {
+  display: flex;
+  flex: 1;
+  margin: 10rpx;
+  align-items: center;
+  justify-content: center;
+ 
+  padding: 10rpx;
+}
+
+.submit .btn {
+  display: flex;
+  width: 50%;
+  height: 50rpx;
+  border: 1px solid #3abb3a;
+  background-color: #3abb3a;
+  margin-left: 400rpx;
+  font-size: 24rpx;
+  color: white;
+  border-radius: 5rpx;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx;
+}
+
+.other {
+    display: flex;
+  flex: 1;
+  margin: 10rpx;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1rpx solid #ddd;
+  padding: 10rpx;
+}
+
+.other .btn {
+  display: flex;
+  width: 50%;
+  height: 50rpx;
+  border: 1px solid #3abb3a;
+  background-color: #3abb3a;
+  margin-left: 400rpx;
+  font-size: 24rpx;
+  color: white;
+  border-radius: 5rpx;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx;
+}
+
+.good {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #ddd;
+  padding: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.good .goodinfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  font-size: 24rpx;
+}
+
+.total {
+  flex: 1;
+  font-size: 24rpx;
+  justify-content: flex-end;
+  color: red;
+}

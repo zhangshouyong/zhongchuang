@@ -115,8 +115,8 @@ Page({
 
   },
   toFirmorder() {
-    let good = { id: 1, number: 2, price: 3000, pic: "/assets/images/jiu_1.jpg", option: 1, active: false};
-    let good2 = { id: 2, number: 3, price: 3000, pic: "/assets/images/jiu_2.jpg", option: 1, active: false };
+    let good = { id: 1, number: 2, price: 3000, pic: "/assets/images/jiu_1.jpg", option: 18, active: false, name: 'zsy'};
+    let good2 = { id: 2, number: 3, price: 3000, pic: "/assets/images/jiu_2.jpg", option: 12, active: false, name: 'zsy2' };
     app.addCart(good);
     app.addCart(good2)
     wx.navigateTo({

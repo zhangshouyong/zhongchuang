@@ -1,0 +1,44 @@
+.content {
+  display: flex;
+  padding: 10rpx;
+  margin: 15rpx;
+  border: 1rpx solid white;
+  border-radius: 10rpx;
+  flex-direction: row;
+  background-color: white;
+  font-size: 24rpx;
+}
+
+.content .left {
+  color: #747272;
+}
+
+ .row {
+  padding: 10rpx;
+  margin: 10rpx;
+}
+
+.pay {
+    display: flex;
+  padding: 15rpx;
+  margin: 15rpx;
+  border: 1rpx solid white;
+  border-radius: 10rpx;
+  flex-direction: row;
+  background-color: white;
+  font-size: 24rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.pay .btn {
+  display: flex;
+  height: 60rpx;
+  width: 70%;
+ border: 1rpx solid orange;
+  border-radius: 10rpx;
+  background-color: orange;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

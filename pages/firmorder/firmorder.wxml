@@ -6,13 +6,30 @@
     <view style='width: 60%'>{{addr}}</view>
     <view style='width: 20%; '>{{phone}}</view>
   </view>
-  <view class='view-addr' bindtap='toAdress'>
-    <view class='view-btn'>选择其他地址</view>
+  <view class='other' bindtap='toAdress'>
+    <view class='btn'>选择其他地址</view>
   </view>
 
   <view wx:for="{{cartlist}}" wx:key="{{item.id}}">
-      <view>
-        <image class="img" src="{{item.pic}}"/>
+    <view class='good'>
+      <image class="img" src="{{item.pic}}" />
+      <view class='goodinfo'>
+        <view>
+        名称： {{item.name}}
+        </view>
+        <view>
+          价格： {{item.price}}
+        </view>
+        <view>
+          数量： {{item.number}}
+        </view>
       </view>
+    </view>
+  </view>
+  <view class='submit total'>
+    订单总计： ￥ {{totalMoney}}
+  </view>
+  <view class='submit' bindtap='toOrderDetail'>
+    <view class='btn'>提交订单</view>
   </view>
 </view>

@@ -6,7 +6,7 @@ Page({
     goodsList: {
       saveHidden: true,
       totalPrice: 100,
-      allSelect: true,
+      allSelect: false,
       noSelect: false,
       list: []
     },
@@ -39,9 +39,9 @@ Page({
   },
   onShow: function() {
     // 获取购物车数据
-    var shopCarInfoMem = JSON.parse(wx.getStorageSync('cartResult'));
+    var shopCarInfoMem = app.globalData.cartlist;
     console.log("--------")
-    console.log(JSON.stringify(shopCarInfoMem));
+    console.log(shopCarInfoMem);
     console.log("--------")
     this.data.goodsList.list = shopCarInfoMem;
     this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), shopCarInfoMem);
@@ -163,11 +163,8 @@ Page({
         list: list
       }
     });
-    var shopCarInfo = {};
-    wx.setStorage({
-      key: "cartResult",
-      data: list
-    })
+    app.globalData.cartlist = list;
+    app.saveCart();
   },
   bindAllSelect: function() {
     var currentAllSelect = this.data.goodsList.allSelect;
@@ -245,7 +242,7 @@ Page({
     wx.showLoading();
     // 重新计算价格，判断库存
     var shopList = [];
-    var shopCarInfoMem = wx.getStorageSync('cartResult');
+    var shopCarInfoMem = app.globalData.cartlist;
     shopList = shopCarInfoMem;
     if (shopList.length == 0) {
       common.showTip("请选择至少一件商品", "loading");

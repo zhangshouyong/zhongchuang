@@ -18,8 +18,9 @@
     "pages/team/team",
     "pages/two/two",
     "pages/editaddress/editaddress",
-    "pages/good/good",
-    "pages/firmorder/firmorder"
+    "pages/firmorder/firmorder",
+    "pages/orderdetail/orderdetail",
+    "pages/good/good"
   ],
   "window": {
     "backgroundTextStyle": "dark",

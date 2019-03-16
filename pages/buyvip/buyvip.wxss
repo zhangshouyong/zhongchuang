@@ -65,18 +65,17 @@
 }
 
 .goods-info .confirm {
+  display: flex;
   width: 164rpx;
   height: 48rpx;  
   font-size: 24rpx;
-  align-items: center;
-  text-align: center;
   border-radius: 10rpx;
   background-color: orange;
   margin-left: 120rpx;
   color: white;
   padding: 5rpx;
   justify-content: center;
-  text-align: center;
+  align-items: center;
 }
 
 .goods-info .text-box .buy-num .jian-btn {

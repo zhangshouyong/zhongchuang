@@ -9,7 +9,17 @@ Page({
     name: '张守勇',
     addr: '普陀区',
     phone: '15900706860',
-    cartlist: []
+    cartlist: [],
+    totalMoney: 0,
+  },
+
+  getTotalMoney: function() {
+    let total = 0;
+    let list = app.globalData.cartlist;
+    for (let i in list ) {
+      total += list[i].price*list[i].number;
+    }
+    return total;
   },
 
   /**
@@ -19,17 +29,19 @@ Page({
     let id = 0;
     if(Object.keys(options).length !=0) {
       id = options.id
-      
     } 
 
+    let total = this.getTotalMoney();
     let addrInfo = app.getAddr(id);
     this.setData({
       id: addrInfo.id,
       name: addrInfo.name,
       addr: addrInfo.addr,
       phone: addrInfo.phone,
-      cartlist: app.globalData.cartlist
-    })
+      cartlist: app.globalData.cartlist,
+      totalMoney: total,
+    });
+
   },
 
   /**
@@ -83,6 +95,12 @@ Page({
   toAdress() {
     wx.navigateTo({
       url: '/pages/adress/adress?operate=0',
+    })
+  },
+  toOrderDetail() {
+    let url = '/pages/orderdetail/orderdetail?id=' + this.data.id + "&money=" + this.data.totalMoney;
+    wx.navigateTo({
+      url: url,
     })
   }
 })

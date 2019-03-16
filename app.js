@@ -38,6 +38,7 @@ App({
   onLaunch() {
     this.readSession();
     this.readAddr();
+    this.readCart();
   },
 
   getAddrlist() {
@@ -52,11 +53,23 @@ App({
       }
     }
   },
+  readCart() {
+    let list = wx.getStorageSync("cartResult");
+    if ('' === list) {
+      list = {};
+    }
+    console.log("readCart->" + list);
+    this.globalData.cartlist = JSON.parse(list);
+  },
+
+  saveCart() {
+    wx.setStorageSync("cartResult", JSON.stringify(this.globalData.cartlist));
+  },
 
   addCart(good) {
     this.globalData.cartlist.push(good);
     console.log("addcrt->"+ JSON.stringify(good));
-    wx.setStorageSync("cartResult", JSON.stringify(this.globalData.cartlist));
+    this.saveCart();
   },
 
   delCart(id) {
