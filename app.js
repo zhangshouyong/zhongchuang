@@ -12,12 +12,12 @@ const version = {
   versionCode: 10,
   versionName: '1.0.6(10)',
 }
-
+/*
 wx.cloud.init({
   traceUser: true,
   env: 'dv-963c46',
 })
-
+*/
 App({
 
   globalData: {
@@ -30,31 +30,50 @@ App({
     totalSale: 1688,
     addrlist: [],
     addrModify: false,
+    session: '',
+    loginFlag: false,
+    cartlist: [], //购物车
   },
 
   onLaunch() {
-    //this.getSetting()
-    //this.getDefaultConfig()
-    let addrData = this.readAddr();
-    console.log("addrData->"+addrData);
-    if (addrData.length == 0) {
-      for (let i = 0; i < 3; i++) {
-        this.globalData.addrlist.push({
-          id: i + 1,
-          name: '张守勇',
-          addr: '上海市普陀区古浪路355弄60号301室',
-          phone: '15900706861'
-        })
-       this.saveAddr();
-      }
-    }
+    this.readSession();
+    this.readAddr();
   },
 
   getAddrlist() {
     return this.globalData.addrlist;
   },
 
+  getDefaultAddr() {
+    let list = this.globalData.addrlist;
+    for (let index in list) {
+      if (list[index].default) {
+        return list[index];
+      }
+    }
+  },
+
+  addCart(good) {
+    this.globalData.cartlist.push(good);
+    console.log("addcrt->"+ JSON.stringify(good));
+    wx.setStorageSync("cartResult", JSON.stringify(this.globalData.cartlist));
+  },
+
+  delCart(id) {
+    let list = this.globalData.cartlist;
+    for (let index in list) {
+      if (id == list[index].id) {
+        this.globalData.cartlist.splice(index);
+        return;     
+
+      }
+    }
+  },
+
   getAddr(id) {
+    if (id == 0) {
+      return this.getDefaultAddr();
+    }
     let list = this.globalData.addrlist;
     for (let index in list) {
       if (id == list[index].id) {
@@ -112,16 +131,12 @@ App({
   },
 
   addAddr(addr) {
-    console.log("addaddr->" + JSON.stringify(addr))
-    if (addr.id == 0) {
+    if (addr.id == "0") {
       addr.id = this.getMaxAddrid()+1;
       this.globalData.addrlist.push(addr);
     } else {
       let oldAddr = this.getAddr(addr.id);
-      console.log("oldaddr->" + JSON.stringify(oldAddr));
       this.updateAddr(addr);
-      console.log("oldaddr2->" + JSON.stringify(oldAddr));
-      console.log("addd----" + JSON.stringify(this.getAddr(addr.id)))
     }
     this.saveAddr();
   },
@@ -140,6 +155,69 @@ App({
   getTotalSale() {
     return this.globalData.totalSale;
   },
+  setSession(session) {
+    this.globalData.session = session;
+    this.saveSession();
+  },
+  saveSession() {
+    wx.setStorageSync("session", this.globalData.session);
+  },
+  getSession() {
+    return this.globalData.session;
+  },
+  readSession() {
+    this.globalData.session = wx.getStorageSync("session");
+  },
+
+  login() {
+    return new Promise((resolve, reject) => {
+      let that = this
+     
+      wx.login({
+        success(res) {
+          console.log(that.globalData)
+          that.globalData.loginFlag = true;
+
+          resolve(that.globalData.loginFlag);
+          let url = 'http://192.168.1.109:8080/api/login/wx?code=' + res.code;
+          wx.request({
+            url: url,
+            success(res) {
+              this.setSession(res.data.data.session);  
+            },
+            fail(res) {
+              console.log(res)
+            }
+          })
+        }
+      });
+    })
+  },
+
+  getUserInfoNew(force) {
+    return new Promise((resolve, reject) => {
+      if (this.globalData.userInfo) {
+        typeof cb === 'function' && cb(this.globalData.userInfo)
+        resolve(this.globalData.userInfo)
+      } else {
+   
+        if (this.getSession() === '' || force) {
+          wx.login({
+            success: res => {
+              let url = 'http://192.168.1.109:8080/api/login/wx?code=' + res.code;
+              wx.request({
+                url: url,
+                success: res => {
+                  this.setSession(res.data.data.session);
+                }
+              })
+
+            }
+          })
+        }
+      }
+    })
+  },
   /**
    * 获取用户信息
    * 支持 callback 和 Promise
@@ -151,17 +229,29 @@ App({
         typeof cb === 'function' && cb(this.globalData.userInfo)
         resolve(this.globalData.userInfo)
       } else {
-        wx.login({
-          success: () => {
-            wx.getUserInfo({
-              success: res => {
-                this.globalData.userInfo = res.userInfo
-                typeof cb === 'function' && cb(this.globalData.userInfo)
-                resolve(this.globalData.userInfo)
-              }
-            })
+        if (this.getSession() === '') {
+          wx.login({
+            success: res => {
+              let url = 'http://192.168.1.109:8080/api/login/wx?code=' + res.code;
+              wx.request({
+                url: url,
+                success: res => {
+                  this.setSession(res.data.data.session);
+                }
+              })
+           
+            }
+          })
+        } 
+
+         wx.getUserInfo({
+          success: res => {
+            this.globalData.userInfo = res.userInfo
+            typeof cb === 'function' && cb(this.globalData.userInfo)
+            resolve(this.globalData.userInfo)
           }
         })
+ 
       }
     })
   },
@@ -199,6 +289,18 @@ App({
           callback(published)
       })
     }
+  },
+
+  getToken() {
+
+  },
+
+  requestToken() {
+
+  },
+
+  saveToken() {
+
   },
 
   /** 退出登录 */

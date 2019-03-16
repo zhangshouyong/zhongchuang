@@ -1,0 +1,31 @@
+.view-addr {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  padding-bottom: 10rpx;
+  height: 80rpx;
+  border-bottom: 1rpx solid #ddd;
+  font-size: 24rpx;
+  align-items: center;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.view-btn {
+  display: flex;
+  height: 50rpx;
+  width: 30%;
+  border: 1px solid #3abb3a;
+  background-color: #3abb3a;
+  margin-left: 400rpx;
+  font-size: 24rpx;
+  color: white;
+  border-radius: 5rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.img {
+  width: 180rpx;
+  height: 180rpx;
+}

@@ -5,83 +5,8 @@
   height: 280rpx;
 }
 
-page {
-  /*height: 100%;*/
-}
-
 .container {
   justify-content: initial;
-}
-
-.title-box {
-  width: 100%;
-  padding-top: 330rpx;
-  text-align: center;
-  font-size: 28rpx;
-  color: #999;
-  background: url(https://cdn.it120.cc/images/weappshop/icon-cart.png) no-repeat center 205rpx;
-  background-size: 100rpx auto;
-  margin-bottom: 50rpx;
-}
-
-.to-index-btn {
-  color: #fff;
-  background: #e64340;
-  border-radius: 6px;
-  width: 300rpx;
-  height: 70rpx;
-  line-height: 70rpx;
-  text-align: center;
-  font-size: 28rpx;
-  margin: 0px auto;
-}
-
-.list-top {
-  width: 100%;
-  height: 88rpx;
-  line-height: 88rpx;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30rpx;
-  font-size: 28rpx;
-  align-items: center;
-}
-
-.list-top .label {
-  color: #000;
-}
-
-.list-top .edit-btn {
-  color: #999;
-  height: 100%;
-}
-
-.goodsList {
-  width: 100%;
-  background-color: #fff;
-  margin-bottom: 100rpx;
-}
-
-.a-gooods {
-  width: 100%;
-  overflow: hidden;
-}
-
-.a-goods-conts {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 30rpx;
-  width: 870rpx;
-  box-sizing: border-box;
-  transition: margin-left 0.2s ease-in-out;
-  background: url(https://cdn.it120.cc/images/weappshop/gou.png) no-repeat 30rpx center;
-  background-size: 40rpx auto;
-}
-
-.a-goods-conts.active {
-  background: url(https://cdn.it120.cc/images/weappshop/gou-red.png) no-repeat 30rpx center;
-  background-size: 40rpx auto;
 }
 
 .goods-info {
@@ -91,16 +16,16 @@ page {
   margin-left: 10rpx;
   width: 97%;
   position: absolute;
-  top: 700rpx;
-  background-color: red
+  top: 720rpx;
+  background-color: white;
+  height: 400rpx;
 }
 
-.goods-info .img-box {
-  width: 160rpx;
-  height: 160rpx;
-  overflow: hidden;
-  margin-right: 20rpx;
-  background-color: #d8d8d8;
+.goods-info .goods-price {
+  font-size: 26rpx;
+  color: #787878;
+  display: flex;
+  padding: 10rpx;
 }
 
 .goods-info .text-box {
@@ -126,13 +51,6 @@ page {
   line-height: 38rpx;
   margin: 8rpx 0 25rpx 0;
 }
-
-.goods-info .goods-price {
-  font-size: 26rpx;
-  color: #000;
-  display: flex;
-}
-
 .goods-info .text-box .buy-num {
   width: 164rpx;
   height: 48rpx;
@@ -149,13 +67,16 @@ page {
 .goods-info .confirm {
   width: 164rpx;
   height: 48rpx;  
-  font-size: 30rpx;
+  font-size: 24rpx;
   align-items: center;
   text-align: center;
-  /*border: 1rpx solid #999;*/
   border-radius: 10rpx;
   background-color: orange;
   margin-left: 120rpx;
+  color: white;
+  padding: 5rpx;
+  justify-content: center;
+  text-align: center;
 }
 
 .goods-info .text-box .buy-num .jian-btn {

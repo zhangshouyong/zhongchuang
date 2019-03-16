@@ -1,7 +1,10 @@
 <import src='./addr_template.wxml' />
 <view class="container" wx:for="{{addrlist}}" wx:key="{{item.id}}">
-  <navigator wx:if="operate==2" url="../editaddress/editaddress?operate={{operate}}&id={{item.id}}&name={{item.name}}&addr={{item.addr}}&phone={{item.phone}}&default={{item.default}}">
+  <navigator wx:if="{{operate==2}}" url="../editaddress/editaddress?operate={{operate}}&id={{item.id}}&name={{item.name}}&addr={{item.addr}}&phone={{item.phone}}&default={{item.default}}">
     <template is="addr-cell" data="{{name:item.name, addr:item.addr, phone:item.phone, default:item.default}}" />
+  </navigator>
+  <navigator wx:elif="{{operate==0}}" url="../firmorder/firmorder?id={{item.id}}">
+    <template is="addr-cell" data="{{name:item.name, addr:item.addr, phone:item.phone}}" />
   </navigator>
   <navigator wx:else url="../editaddress/editaddress?id={{item.id}}">
     <template is="addr-cell" data="{{name:item.name, addr:item.addr, phone:item.phone}}" />

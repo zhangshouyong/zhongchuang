@@ -1,0 +1,18 @@
+<!--pages/firmorder/firmorder.wxml-->
+<import src='../adress/addr_template.wxml' />
+<view class='container'>
+  <view class='view-addr'>
+    <view style='width: 15%'>{{name}}</view>
+    <view style='width: 60%'>{{addr}}</view>
+    <view style='width: 20%; '>{{phone}}</view>
+  </view>
+  <view class='view-addr' bindtap='toAdress'>
+    <view class='view-btn'>选择其他地址</view>
+  </view>
+
+  <view wx:for="{{cartlist}}" wx:key="{{item.id}}">
+      <view>
+        <image class="img" src="{{item.pic}}"/>
+      </view>
+  </view>
+</view>

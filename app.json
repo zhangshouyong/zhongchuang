@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/splash/splash",
     "pages/my/my",
     "pages/tabs/index/index",
     "pages/tabs/movies/movies",
@@ -19,7 +18,8 @@
     "pages/team/team",
     "pages/two/two",
     "pages/editaddress/editaddress",
-    "pages/good/good"
+    "pages/good/good",
+    "pages/firmorder/firmorder"
   ],
   "window": {
     "backgroundTextStyle": "dark",

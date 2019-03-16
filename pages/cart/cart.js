@@ -5,7 +5,7 @@ Page({
   data: {
     goodsList: {
       saveHidden: true,
-      totalPrice: 0,
+      totalPrice: 100,
       allSelect: true,
       noSelect: false,
       list: []
@@ -38,9 +38,11 @@ Page({
     this.onShow();
   },
   onShow: function() {
-    var shopList = [];
     // 获取购物车数据
-    var shopCarInfoMem = wx.getStorageSync('cartResult');
+    var shopCarInfoMem = JSON.parse(wx.getStorageSync('cartResult'));
+    console.log("--------")
+    console.log(JSON.stringify(shopCarInfoMem));
+    console.log("--------")
     this.data.goodsList.list = shopCarInfoMem;
     this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), shopCarInfoMem);
   },
@@ -273,7 +275,7 @@ Page({
     wx.removeStorageSync('cartResult')
     wx.hideLoading();
     wx.navigateTo({
-      url: "../payorder/index"
+      url: "../firmorder/firmorder"
     })
   }
 })

@@ -8,24 +8,38 @@ Page({
   data: {
     version: app.globalData.version,
     userInfo: {},
-    vip: true,
+    vip: false,
+    login: false,
   },
 
   test: function() {
-    console.log("test-------->")
+    //console.log("test-------->")
   },
 
   onLoad: function () {
     //调用应用实例的方法获取全局数据
-    app.getUserInfo(this.test).then(userInfo => {
+    if (app.getSession() === '') {
+      
+    }
+    console.log("wwwww")
+    app.login().then(loginFlag => {
+      this.setData({
+        login: loginFlag
+      })
+      console.log("flag->" + loginFlag)
+    });
+
+  /*
+    app.getUserInfoNew(false).then(userInfo => {
       //更新数据
       this.setData({
         userInfo
       })
-      console.log(userInfo)
+      
     })
+    console.log(this.data.userInfo)
+  */
   },
-
   /**
    * 去设置
    */

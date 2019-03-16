@@ -4,7 +4,7 @@
 <view class="container page-user">
   <view bindtap="bindViewTap" class="userinfo btn-bg">
     <view class="cell-left">
-      <open-data wx:if='{{userInfo.avatarUrl}}' class="userinfo-avatar" type="userAvatarUrl"></open-data>
+      <open-data wx:if='{{login}}' class="userinfo-avatar" type="userAvatarUrl"></open-data>
       <view style="flex-direction: row">
         <view>
           <open-data class="userinfo-nickname" type="userNickName" lang="zh_CN"></open-data>
