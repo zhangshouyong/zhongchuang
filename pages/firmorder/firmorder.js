@@ -1,3 +1,4 @@
+
 let app = getApp();
 Page({
 
@@ -6,16 +7,18 @@ Page({
    */
   data: {
     id: 0,
-    name: '张守勇',
+    name: '默认',
     addr: '普陀区',
     phone: '15900706860',
-    cartlist: [],
+    curOrdder: [],
     totalMoney: 0,
   },
 
   getTotalMoney: function() {
     let total = 0;
-    let list = app.globalData.cartlist;
+    let list = app.globalData.curOrder;
+    console.log("list->" + JSON.stringify(list))
+    
     for (let i in list ) {
       total += list[i].price*list[i].number;
     }
@@ -31,17 +34,17 @@ Page({
       id = options.id
     } 
 
+    let curOrder = app.globalData.curOrder;
+    
     let total = this.getTotalMoney();
     let addrInfo = app.getAddr(id);
-    this.setData({
-      id: addrInfo.id,
-      name: addrInfo.name,
-      addr: addrInfo.addr,
-      phone: addrInfo.phone,
-      cartlist: app.globalData.cartlist,
-      totalMoney: total,
-    });
-
+    if (addrInfo) {
+      this.setData({
+        ...addrInfo,
+        curOrdder: curOrder,
+        totalMoney: total,
+      });
+    }
   },
 
   /**
@@ -92,15 +95,36 @@ Page({
   onShareAppMessage: function () {
 
   },
+
   toAdress() {
     wx.navigateTo({
       url: '/pages/adress/adress?operate=0',
     })
   },
+
   toOrderDetail() {
-    let url = '/pages/orderdetail/orderdetail?id=' + this.data.id + "&money=" + this.data.totalMoney;
-    wx.navigateTo({
+    let url = app.getHostUrl() + '/api/user/order';
+    let orderData = {"address": this.data.addr, "items":[{"id": 1,"count":2}, {"id":2, "count": 3}]};
+    let header = app.getHeader();
+    let that = this;
+    wx.request({
       url: url,
+      header: header,
+      method: 'POST',
+      data: orderData,
+      success(res) {
+        console.log("res====>" + JSON.stringify(res));
+        wx.setStorageSync("paydata", res.data.data);
+        url = '/pages/orderdetail/orderdetail?data=' + JSON.stringify(that.data);
+        wx.navigateTo({
+          url: url,
+        })
+        
+      },
+      fail(res) {
+        console.log("fail-->" + JSON.stringify(res));
+      }
     })
+    
   }
 })

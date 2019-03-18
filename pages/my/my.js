@@ -16,19 +16,22 @@ Page({
     //console.log("test-------->")
   },
 
-  onLoad: function () {
-    //调用应用实例的方法获取全局数据
-    if (app.getSession() === '') {
-      
+  onLoad: function (options) {
+    let code = options.code;
+    if (code) {
+      console.log('code->' + code);
     }
-    console.log("wwwww")
-    app.login().then(loginFlag => {
-      this.setData({
-        login: loginFlag
-      })
-      console.log("flag->" + loginFlag)
-    });
-
+    //调用应用实例的方法获取全局数据
+    let session = app.getSession();
+    //if (session === '' || !this.data.login) {
+      app.login().then(loginFlag => {
+        this.setData({
+          login: loginFlag
+        })
+        console.log("login->" + this.data.login);
+      });
+   // }
+    console.log('sesseion->' + session);
   /*
     app.getUserInfoNew(false).then(userInfo => {
       //更新数据
@@ -39,6 +42,9 @@ Page({
     })
     console.log(this.data.userInfo)
   */
+  },
+  onShow: function() {
+    console.log("sssssss")
   },
   /**
    * 去设置

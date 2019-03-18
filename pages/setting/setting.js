@@ -59,5 +59,9 @@ Page({
       title: '已清除',
       icon: 'success'
     })
+
+    wx.removeStorageSync("cartResult");
+    wx.removeStorageSync("orderResult");
+    wx.removeStorageSync("addrlist");
   }
 })

@@ -22,13 +22,6 @@ Page({
     interval: 5000,
     duration: 1000,
     num: 1,
-    goodsList: {
-      saveHidden: true,
-      totalPrice: 0,
-      allSelect: true,
-      noSelect: false,
-      list: []
-    },
   },
 
   /**
@@ -42,17 +35,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.request({
-      url: 'http://www.test.com/',
-      method: 'GET',
-      header: {
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data)
-        console.log(res.data.name)
-      }
-    })
+  
   },
 
   /**
@@ -115,10 +98,15 @@ Page({
 
   },
   toFirmorder() {
-    let good = { id: 1, number: 2, price: 3000, pic: "/assets/images/jiu_1.jpg", option: 18, active: false, name: 'zsy'};
-    let good2 = { id: 2, number: 3, price: 3000, pic: "/assets/images/jiu_2.jpg", option: 12, active: false, name: 'zsy2' };
+    let good = { id: 1, number: 2, price: 3000, pic: "/assets/images/jiu_1.jpg", option: 18, active: false, name: '长城干红'};
+    let good2 = { id: 2, number: 3, price: 1500, pic: "/assets/images/jiu_2.jpg", option: 12, active: false, name: '张裕解百纳'};
     app.addCart(good);
-    app.addCart(good2)
+    app.addCart(good2);
+    let order = [{ id: 1, number: 2, price: 3000, pic: "/assets/images/jiu_1.jpg", state: 0, name: "长城干红" },
+      { id: 2, number: 3, price: 1500, pic: "/assets/images/jiu_2.jpg", state: 0, name: "张裕解百纳"}];
+    app.addOrder(order[0]);
+    app.addOrder(order[1]);
+    app.globalData.curOrder = order;
     wx.navigateTo({
       url: '/pages/firmorder/firmorder',
     })

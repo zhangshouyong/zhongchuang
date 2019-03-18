@@ -5,18 +5,22 @@
       <view class='row'>订单运费：</view>
       <view class='row'>下单时间：</view>
       <view class='row'>订单编号：</view>
+      <view class='row'>收货人：</view>
+      <view class='row'>电 话：</view>
       <view class='row'>收货地址：</view>
     </view>
-    <view  >
-     <view class='row'>{{money}}</view>
+    <view>
+      <view class='row'>￥ {{money}}</view>
       <view class='row'>￥ 0.00</view>
-      <view class='row'>2019-03-16 21:50:20</view>
-      <view class='row'>订单编号：201903162312118888</view>
-      <view class='row'>上海市普陀区</view>
+      <view class='row'>{{date}}</view>
+      <view class='row'>{{number}}</view>
+      <view class='row'>{{name}}</view>
+      <view class='row'>{{phone}}</view>
+      <view class='row'>{{addr}}</view>
     </view>
   </view>
-  
+
   <view class='pay'>
-    <view class='btn'>立即支付</view>
+    <view class='btn' bindtap='pay'>立即支付</view>
   </view>
 </view>

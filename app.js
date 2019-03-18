@@ -19,7 +19,6 @@ wx.cloud.init({
 })
 */
 App({
-
   globalData: {
     version,
     userInfo: null,
@@ -33,12 +32,15 @@ App({
     session: '',
     loginFlag: false,
     cartlist: [], //购物车
+    orderlist: [], //订单列表 状态state=0 未支付 1支付成功 2支付失败 物品列表[{}, {}]
+    curOrder: [],
   },
 
   onLaunch() {
     this.readSession();
     this.readAddr();
     this.readCart();
+    this.readOrder();
   },
 
   getAddrlist() {
@@ -53,6 +55,48 @@ App({
       }
     }
   },
+
+  readOrder() {
+    let list = wx.getStorageSync("orderResult");
+    if ('' === list) {
+      list = {};
+    }
+    console.log("readOrder->" + list);
+    this.globalData.orderlist = JSON.parse(list);
+  },
+
+  saveOrder() {
+    wx.setStorageSync("orderResult", JSON.stringify(this.globalData.orderlist));
+  },
+
+  addOrder(order) {
+    this.globalData.orderlist.push(order);
+    console.log("addOrder->" + JSON.stringify(order));
+    this.saveOrder();
+  },
+
+  modifyOrder(id, state) {
+    let list = this.globalData.orderlist;
+    for (let index in list) {
+      if (id == list[index].id) {
+        list[index].state = state;
+        this.saveOrder();
+        return;
+      }
+    }
+  },
+  
+  delOrder(id) {
+    let list = this.globalData.orderlist;
+    for (let index in list) {
+      if (id == list[index].id) {
+        this.globalData.orderlist.splice(index);
+        this.saveOrder();
+        return;
+      }
+    }
+  },
+
   readCart() {
     let list = wx.getStorageSync("cartResult");
     if ('' === list) {
@@ -77,11 +121,12 @@ App({
     for (let index in list) {
       if (id == list[index].id) {
         this.globalData.cartlist.splice(index);
+        this.saveCart();
         return;     
-
       }
     }
   },
+
 
   getAddr(id) {
     if (id == 0) {
@@ -192,11 +237,15 @@ App({
           that.globalData.loginFlag = true;
 
           resolve(that.globalData.loginFlag);
-          let url = 'http://192.168.1.109:8080/api/login/wx?code=' + res.code;
+          //let url = 'http://129.211.129.62:8080/api/login/wx?code=' + res.code;
+          let url = that.getHostUrl() + '/api/login/wx?code=' + res.code;
           wx.request({
             url: url,
             success(res) {
-              this.setSession(res.data.data.session);  
+              console.log("app login res->"+ JSON.stringify(res));
+              if (res.data.data) {
+                that.setSession(res.data.data.session);  
+              }
             },
             fail(res) {
               console.log(res)
@@ -208,20 +257,21 @@ App({
   },
 
   getUserInfoNew(force) {
+    let that = this;
     return new Promise((resolve, reject) => {
-      if (this.globalData.userInfo) {
-        typeof cb === 'function' && cb(this.globalData.userInfo)
-        resolve(this.globalData.userInfo)
+      if (that.globalData.userInfo) {
+        typeof cb === 'function' && cb(that.globalData.userInfo)
+        resolve(that.globalData.userInfo)
       } else {
    
-        if (this.getSession() === '' || force) {
+        if (that.getSession() === '' || force) {
           wx.login({
             success: res => {
-              let url = 'http://192.168.1.109:8080/api/login/wx?code=' + res.code;
+              let url = that.getHostUrl() + '/api/login/wx?code=' + res.code;
               wx.request({
                 url: url,
                 success: res => {
-                  this.setSession(res.data.data.session);
+                  that.setSession(res.data.data.session);
                 }
               })
 
@@ -245,7 +295,7 @@ App({
         if (this.getSession() === '') {
           wx.login({
             success: res => {
-              let url = 'http://192.168.1.109:8080/api/login/wx?code=' + res.code;
+              let url = this.getHostUrl() + 'api/login/wx?code=' + res.code;
               wx.request({
                 url: url,
                 success: res => {
@@ -340,4 +390,12 @@ App({
     }
   },
 
+  getHeader() {
+    return {"Authorization" : this.getSession()};
+  },
+  getHostUrl() {
+    let url = "http://192.168.1.109:8080"
+    //let url = "http://129.211.129.62:8080";
+    return url;
+  }
 })

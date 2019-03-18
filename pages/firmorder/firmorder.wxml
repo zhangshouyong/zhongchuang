@@ -10,7 +10,7 @@
     <view class='btn'>选择其他地址</view>
   </view>
 
-  <view wx:for="{{cartlist}}" wx:key="{{item.id}}">
+  <view wx:for="{{curOrdder}}" wx:key="{{item.id}}">
     <view class='good'>
       <image class="img" src="{{item.pic}}" />
       <view class='goodinfo'>
@@ -26,10 +26,12 @@
       </view>
     </view>
   </view>
-  <view class='submit total'>
+</view>
+<view class='submit'>
+<view class='left'>
     订单总计： ￥ {{totalMoney}}
   </view>
-  <view class='submit' bindtap='toOrderDetail'>
-    <view class='btn'>提交订单</view>
+  <view class='right' bindtap='toOrderDetail'>
+    提交订单
   </view>
 </view>

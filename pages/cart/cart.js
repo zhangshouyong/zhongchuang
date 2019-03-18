@@ -40,9 +40,6 @@ Page({
   onShow: function() {
     // 获取购物车数据
     var shopCarInfoMem = app.globalData.cartlist;
-    console.log("--------")
-    console.log(shopCarInfoMem);
-    console.log("--------")
     this.data.goodsList.list = shopCarInfoMem;
     this.setGoodsList(this.getSaveHide(), this.totalPrice(), this.allSelect(), this.noSelect(), shopCarInfoMem);
   },
@@ -261,15 +258,13 @@ Page({
         }
       }
     }
-    wx.setStorage({
-      key: "orderResult",
-      data: orderResult
-    })
+    console.log("orderresut->" + orderResult);
+    app.globalData.curOrder = orderResult;
     that.navigateToPayOrder();
   },
   navigateToPayOrder: function() {
     //清除购物车库存
-    wx.removeStorageSync('cartResult')
+    wx.removeStorageSync('cartResult');
     wx.hideLoading();
     wx.navigateTo({
       url: "../firmorder/firmorder"

@@ -1,19 +1,27 @@
-// pages/order/order.js
+let app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
     currentTab: 0,
+    orderlist: [], //订单列表
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      currentTab: options.id
+    let that = this;
+    let currentTab = 0;
+    if (options.id) {
+      currentTab = parseInt(options.id);
+    }
+
+    console.log("orderlist->" + JSON.stringify(app.globalData.orderlist))
+    that.setData({
+      currentTab: currentTab,
+      orderlist: app.globalData.orderlist,
     });
   },
 
@@ -67,9 +75,7 @@ Page({
   },
 
   swichNav: function (e) {
-
     var that = this;
-
     if (this.data.currentTab === e.target.dataset.current) {
       return false;
     } else {
@@ -77,6 +83,21 @@ Page({
         currentTab: e.target.dataset.current
       })
     }
-
   },
+
+  getShowState() {
+    let state = -1;
+    switch(this.data.currentTab) {
+      case 0:
+        state = 0;
+        break;
+        case 1: 
+        state = 1;
+    }
+    return state;
+  },
+
+  showOrderList() {
+    let state = this.getShowState();
+  }
 })

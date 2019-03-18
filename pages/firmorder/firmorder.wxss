@@ -17,7 +17,6 @@
   width: 30%;
   border: 1px solid #3abb3a;
   background-color: #3abb3a;
-  margin-left: 400rpx;
   font-size: 24rpx;
   color: white;
   border-radius: 5rpx;
@@ -32,27 +31,40 @@
 
 .submit {
   display: flex;
-  flex: 1;
-  margin: 10rpx;
+  width: 100%;
   align-items: center;
-  justify-content: center;
- 
-  padding: 10rpx;
+  justify-content: space-between;
+  padding-left: 20rpx;  
+  padding-right: 20rpx;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+  z-index: 9999;
+  
+}
+.submit .left {
+  display: flex;
+  font-size: 24rpx;
+  justify-content: flex-end;
+  color: red;
 }
 
-.submit .btn {
+.submit .right {
   display: flex;
-  width: 50%;
   height: 50rpx;
   border: 1px solid #3abb3a;
   background-color: #3abb3a;
-  margin-left: 400rpx;
   font-size: 24rpx;
   color: white;
   border-radius: 5rpx;
   align-items: center;
   justify-content: center;
   padding: 10rpx;
+  margin-right: 40rpx;
+  width: 300rpx;
 }
 
 .other {
@@ -95,9 +107,3 @@
   font-size: 24rpx;
 }
 
-.total {
-  flex: 1;
-  font-size: 24rpx;
-  justify-content: flex-end;
-  color: red;
-}
