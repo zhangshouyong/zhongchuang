@@ -13,29 +13,6 @@
 
 <view class='content'>
   <view class='allorder' wx:for="{{orderlist}}">
-  <view class='space'></view>
-    <view wx:for="{{orderlist}}" wx:key="{{}}" class='show'>
-      <view class='order-item'>
-        <image class='img' src='{{item.pic}}' />
-        <view class='desc'>
-          <view>
-            <view>名称：{{item.name}}</view>
-            <view>数量： {{item.number}}</view>
-          </view>
-          <view>{{item.pricce}}</view>
-        </view>
-      </view>
-    </view>
-
-    <view class='order-money'>
-      <view>订单价：</view>
-      <view>待付款</view>
-    </view>
-
-    <view class='order-detail'>
-      <view class='btn'>订单详情</view>
-    </view>
-
-    
+    <include src="../order/template-order.wxml" />
   </view>
 </view>

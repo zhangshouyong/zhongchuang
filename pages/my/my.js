@@ -32,19 +32,9 @@ Page({
       });
    // }
     console.log('sesseion->' + session);
-  /*
-    app.getUserInfoNew(false).then(userInfo => {
-      //更新数据
-      this.setData({
-        userInfo
-      })
-      
-    })
-    console.log(this.data.userInfo)
-  */
   },
   onShow: function() {
-    console.log("sssssss")
+    
   },
   /**
    * 去设置

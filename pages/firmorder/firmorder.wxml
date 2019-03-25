@@ -2,9 +2,9 @@
 <import src='../adress/addr_template.wxml' />
 <view class='container'>
   <view class='view-addr'>
-    <view style='width: 15%'>{{name}}</view>
-    <view style='width: 60%'>{{addr}}</view>
-    <view style='width: 20%; '>{{phone}}</view>
+    <view style='width: 15%'>{{addr.name}}</view>
+    <view style='width: 60%'>{{addr.addr}}</view>
+    <view style='width: 20%; '>{{addr.phone}}</view>
   </view>
   <view class='other' bindtap='toAdress'>
     <view class='btn'>选择其他地址</view>

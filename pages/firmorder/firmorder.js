@@ -6,10 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    id: 0,
-    name: '默认',
-    addr: '普陀区',
-    phone: '15900706860',
+    addr: {},
     curOrdder: [],
     totalMoney: 0,
   },
@@ -33,14 +30,14 @@ Page({
     if(Object.keys(options).length !=0) {
       id = options.id
     } 
-
+  
     let curOrder = app.globalData.curOrder;
-    
+
     let total = this.getTotalMoney();
     let addrInfo = app.getAddr(id);
     if (addrInfo) {
       this.setData({
-        ...addrInfo,
+        addr: {...addrInfo},
         curOrdder: curOrder,
         totalMoney: total,
       });
@@ -96,15 +93,37 @@ Page({
 
   },
 
+  /**
+   * 选择地址
+   */
   toAdress() {
     wx.navigateTo({
       url: '/pages/adress/adress?operate=0',
     })
   },
 
+
+  getOrderItems() {
+    let items = new Array();
+    for (let i in this.data.curOrdder) {
+      let data = this.data.curOrdder[i];
+      let item = {"id": data.id, "count": data.number};
+      items.push(item);
+    }
+
+    return items;
+  },
+
   toOrderDetail() {
     let url = app.getHostUrl() + '/api/user/order';
-    let orderData = {"address": this.data.addr, "items":[{"id": 1,"count":2}, {"id":2, "count": 3}]};
+    let items = this.getOrderItems();
+    let order = {
+      "address": this.data.addr.addr,  "items": items,
+    };
+
+    console.log("order--->" + JSON.stringify(order));
+    /*
+    let orderData = {"address": this.data.addr.addr, "items":[{"id": 1,"count":2}, {"id":2, "count": 3}]};
     let header = app.getHeader();
     let that = this;
     wx.request({
@@ -125,6 +144,6 @@ Page({
         console.log("fail-->" + JSON.stringify(res));
       }
     })
-    
+    */
   }
 })

@@ -1,4 +1,4 @@
-// pages/home/home.js
+let app = getApp();
 Page({
 
   /**

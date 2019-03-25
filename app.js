@@ -111,7 +111,12 @@ App({
   },
 
   addCart(good) {
-    this.globalData.cartlist.push(good);
+    let item = this.getCart(good.id) 
+    if (item) {
+      item.number += good.number;
+    } else {
+      this.globalData.cartlist.push(good);
+    }
     console.log("addcrt->"+ JSON.stringify(good));
     this.saveCart();
   },
@@ -127,6 +132,14 @@ App({
     }
   },
 
+  getCart(id) {
+    let list = this.globalData.cartlist;
+    for (let i in list) {
+      if (list[i].id == id) {
+        return list[i];
+      }
+    }
+  },
 
   getAddr(id) {
     if (id == 0) {
@@ -230,14 +243,11 @@ App({
   login() {
     return new Promise((resolve, reject) => {
       let that = this
-     
       wx.login({
         success(res) {
           console.log(that.globalData)
           that.globalData.loginFlag = true;
-
           resolve(that.globalData.loginFlag);
-          //let url = 'http://129.211.129.62:8080/api/login/wx?code=' + res.code;
           let url = that.getHostUrl() + '/api/login/wx?code=' + res.code;
           wx.request({
             url: url,
@@ -248,37 +258,11 @@ App({
               }
             },
             fail(res) {
-              console.log(res)
+              console.log(res);
             }
           })
         }
       });
-    })
-  },
-
-  getUserInfoNew(force) {
-    let that = this;
-    return new Promise((resolve, reject) => {
-      if (that.globalData.userInfo) {
-        typeof cb === 'function' && cb(that.globalData.userInfo)
-        resolve(that.globalData.userInfo)
-      } else {
-   
-        if (that.getSession() === '' || force) {
-          wx.login({
-            success: res => {
-              let url = that.getHostUrl() + '/api/login/wx?code=' + res.code;
-              wx.request({
-                url: url,
-                success: res => {
-                  that.setSession(res.data.data.session);
-                }
-              })
-
-            }
-          })
-        }
-      }
     })
   },
   /**

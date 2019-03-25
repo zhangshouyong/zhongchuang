@@ -103,6 +103,10 @@ Page({
   onShareAppMessage: function () {
 
   },
+
+  /**
+   * 立即购买
+   */
   toFirmorder() {
     app.globalData.curOrder = [];
     let order = { ...this.data.item }
@@ -115,6 +119,9 @@ Page({
     })
   },
 
+  /**
+   * 加入购物车
+   */
   addCart() {
     let item = {...this.data.item};
     item.number = this.data.num;
@@ -126,6 +133,10 @@ Page({
       title: '加入成功',
     })
   },
+
+  /**
+   * 打开购物车
+   */
   toCart() {
     wx.switchTab({
       url: '/pages/cart/cart',
