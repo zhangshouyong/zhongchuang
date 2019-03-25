@@ -1,6 +1,3 @@
-// pages/my/my.js
-// 个人中心
-//获取应用实例
 var app = getApp()
 
 Page({
@@ -22,17 +19,16 @@ Page({
       console.log('code->' + code);
     }
     //调用应用实例的方法获取全局数据
-    let session = app.getSession();
-    //if (session === '' || !this.data.login) {
+    if (!app.isLogin()) {
       app.login().then(loginFlag => {
         this.setData({
           login: loginFlag
         })
         console.log("login->" + this.data.login);
       });
-   // }
-    console.log('sesseion->' + session);
+    }
   },
+  
   onShow: function() {
     
   },

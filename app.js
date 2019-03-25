@@ -36,6 +36,13 @@ App({
     curOrder: [],
   },
 
+  isLogin() {
+    if (this.getSession() === '' || !this.globalData.loginFlag) {
+      return false;
+    }
+    return true;
+  },
+
   onLaunch() {
     this.readSession();
     this.readAddr();
