@@ -1,4 +1,5 @@
 // pages/sale/sale.js
+var util = require('../../utils/util.js');  
 var app = getApp()
 Page({
 
@@ -8,28 +9,30 @@ Page({
   data: {
     commission: 0,
     totalSale: 0,
-    orderCnt: 1,
-    income: 422.00,
+    payorder_cnt: 10,
+    team_member: 10,
+    income: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let time = util.formatDate(new Date());
+    console.log('time----->' + time);
     console.log(options);
     this.setData({
       commission: app.getCommission(),
       totalSale: app.getTotalSale(),
+      team_total: app.getTeamTotal(),
+      active_total: app.getActiveTotal(),
+      income: parseFloat(app.getIncome()),
     });
-    /*
-    app.getUserInfo(this.test).then(userInfo => {
-      //更新数据
-      wx.setNavigationBarTitle({
-        title: userInfo.nickName
-      })
-      console.log(userInfo)
-    })
-    */
+    console.log("aaaa----------" + app);
+    app.reqPayorder();
+    console.log("bbb----------" + app);
+    app.reqTeamlist();
+    console.log("cccc----------" + app);
   },
 
   /**

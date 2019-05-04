@@ -259,12 +259,20 @@ Page({
       }
     }
     console.log("orderresut->" + orderResult);
-    app.globalData.curOrder = orderResult;
+    
+    let order = {};
+    order.items = orderResult;
+    order.state = 0;
+    order.number = orderResult.length;
+    app.globalData.curOrder = order;
+    app.globalData.orderlist.push(order);
+    console.log("toPayOrder -----> curOrder--->" + JSON.stringify(orderResult));
     that.navigateToPayOrder();
   },
   navigateToPayOrder: function() {
     //清除购物车库存
     wx.removeStorageSync('cartResult');
+    app.globalData.cartlist = [];
     wx.hideLoading();
     wx.navigateTo({
       url: "../firmorder/firmorder"

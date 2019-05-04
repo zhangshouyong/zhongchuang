@@ -6,11 +6,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    commission: 0,
-    totalSale: 0,
-    subSommission: 200,
-    subActive: 1000,
-    subTeamReward: 500,
+    commission_total: 0,
+    sale_total: 0,
+    commission_balance: 0,
+    active_balance: 0,
+    team_balance: 0,
     drawmoneyCnt: 0,
   },
 
@@ -19,8 +19,11 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      commission: app.getCommission(),
-      totalSale: app.getTotalSale(),
+      commission_total: app.getCommission(),
+      sale_total: app.getTotalSale(),
+      commission_balance: app.getCommissionBalance(),
+      active_balance: app.getActiveBalance(),
+      team_balance: app.getTeamBalance()
     });
   },
 

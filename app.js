@@ -18,6 +18,7 @@ wx.cloud.init({
   env: 'dv-963c46',
 })
 */
+
 App({
   globalData: {
     version,
@@ -25,15 +26,70 @@ App({
     setting: {},
     config: null,
     published: false, // 是否为发布版
-    commission: 422,
-    totalSale: 1688,
+    team_balance: 0,        //团队奖励余额
+    team_total: 0,          //团队奖励
+    commission_balance: 0,  //佣金余额
+    commission_total: 0,    //佣金
+    active_balance: 0,      //动态分红余额
+    active_total: 0,        //动态分红
+    sale_total: 0,          //总销售额
+    session_key: '',        //微信session_key
     addrlist: [],
     addrModify: false,
     session: '',
     loginFlag: false,
     cartlist: [], //购物车
     orderlist: [], //订单列表 状态state=0 未支付 1支付成功 2支付失败 物品列表[{}, {}]
-    curOrder: [],
+    teamlist: [],
+    team_member: 0,
+    curOrder: {}, //{"name":"zsy", "addr":"123", phone:"15900706866", "items":[]}
+    userid: 0,
+    name: '',
+    payorderlist: [],
+    payorder_count: 0,
+    qrcode: '',
+  },
+
+  reqPayorder() {
+    console.log("reqPayorder-----> this->" + this)
+    let header = this.getHeader();
+    let url = this.getHostUrl() + '/api/user/promotionOrderList';
+    let that = this
+    wx.request({
+      url: url,
+      header: header,
+      success(res) {
+        console.log("user----->" + JSON.stringify(res.data));
+        //{"orders":["orderNo","userid","totalPrice","wxname","date"]}
+        let orders = res.data.orders;
+        for (let key in  orders) {
+          orders[key].date = Util.formatDate(orders[key].date);
+        }
+        that.globalData.payorderlist = res.data.data.orders;
+        that.globalData.payorder_count = res.data.data.orders.length;
+      }
+    });
+  },
+
+  reqTeamlist() {
+    let header = this.getHeader();
+    let url = this.getHostUrl() + '/api/user/team';
+    wx.request({
+      url: url,
+      header: header,
+      success(res) {
+        console.log('reqTeamlist res-->' + res );
+        /*
+        let teams = res.data.team;
+        for (let key in teams) {
+          teams[key].create_time = Util.formatDate(teams[key].create_time);
+        }
+        this.globalData.teamlist = res.data.team;
+        this.globalData.team_member = this.globalData.teamlist.length;
+        */
+        //{"ecode":0,"errmsg":"ok","data":{"team":[{"userid":18,"wxname":null,"create_time":null}]}}
+      }
+    });
   },
 
   isLogin() {
@@ -66,10 +122,11 @@ App({
   readOrder() {
     let list = wx.getStorageSync("orderResult");
     if ('' === list) {
-      list = {};
+      this.globalData.orderlist = [];
+    } else {
+      this.globalData.orderlist = JSON.parse(list);
     }
-    console.log("readOrder->" + list);
-    this.globalData.orderlist = JSON.parse(list);
+    
   },
 
   saveOrder() {
@@ -107,7 +164,7 @@ App({
   readCart() {
     let list = wx.getStorageSync("cartResult");
     if ('' === list) {
-      list = {};
+      list = "[]";
     }
     console.log("readCart->" + list);
     this.globalData.cartlist = JSON.parse(list);
@@ -152,6 +209,7 @@ App({
     if (id == 0) {
       return this.getDefaultAddr();
     }
+
     let list = this.globalData.addrlist;
     for (let index in list) {
       if (id == list[index].id) {
@@ -165,6 +223,7 @@ App({
     if('' === addrData) {
       return []
     }
+    console.log("readAddr->" + JSON.stringify(addrData))
     return this.globalData.addrlist = JSON.parse(addrData);
   },
 
@@ -228,10 +287,28 @@ App({
     this.saveAddr();
   },
   getCommission() {
-    return this.globalData.commission;
+    return this.globalData.commission_total;
   },
   getTotalSale() {
-    return this.globalData.totalSale;
+    return this.globalData.sale_total;
+  },
+  getTeamTotal() {
+    return this.globalData.team_total;
+  },
+  getActiveTotal() {
+    return this.globalData.active_total;
+  },
+  getCommissionBalance() {
+    return this.globalData.commission_balance;
+  },
+  getActiveBalance() {
+    return this.globalData.active_balance;
+  },
+  getTeamBalance() {
+    return this.globalData.team_balance;
+  },
+  getIncome() {
+    return this.globalData.team_total+this.globalData.commission_total+this.globalData.active_total
   },
   setSession(session) {
     this.globalData.session = session;
@@ -247,27 +324,37 @@ App({
     this.globalData.session = wx.getStorageSync("session");
   },
 
-  login() {
+  login(qrcode) {
     return new Promise((resolve, reject) => {
+      console.log("login------qrcode------>", qrcode);
       let that = this
       wx.login({
         success(res) {
+          console.log("login res11111 ->" + JSON.stringify(res))
           console.log(that.globalData)
           that.globalData.loginFlag = true;
           resolve(that.globalData.loginFlag);
-          let url = that.getHostUrl() + '/api/login/wx?code=' + res.code;
-          wx.request({
-            url: url,
-            success(res) {
-              console.log("app login res->"+ JSON.stringify(res));
-              if (res.data.data) {
-                that.setSession(res.data.data.session);  
+          console.log("login111-- res.code->" + res.code);
+          if (res.code) {
+
+            //name = res_user.userInfo.nickName;
+            //console.log("login name---->" + name);
+            //qrcode = "123456789"
+            let url = that.getHostUrl() + '/api/login/wx?code=' + res.code + "&upline=" + qrcode + "&name=" + "test";
+            console.log("logurl ----->" + url)
+            wx.request({
+              url: url,
+              success(res) {
+                console.log("app login res->" + JSON.stringify(res));
+                if (res.data.data) {
+                  that.setSession(res.data.data.session);
+                }
+              },
+              fail(res) {
+                console.log(res);
               }
-            },
-            fail(res) {
-              console.log(res);
-            }
-          })
+            })
+          }
         }
       });
     })
@@ -385,8 +472,9 @@ App({
     return {"Authorization" : this.getSession()};
   },
   getHostUrl() {
-    let url = "http://192.168.1.109:8080"
+    //let url = "http://192.168.1.109:8080"
     //let url = "http://129.211.129.62:8080";
+    let url = "https://www.zhongchuang288.cn"
     return url;
   }
 })

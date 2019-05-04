@@ -5,8 +5,9 @@ Page({
   data: {
     version: app.globalData.version,
     userInfo: {},
-    vip: false,
+    vip: true,
     login: false,
+    qrcode: "",
   },
 
   test: function() {
@@ -14,19 +15,51 @@ Page({
   },
 
   onLoad: function (options) {
-    let code = options.code;
-    if (code) {
-      console.log('code->' + code);
+    let scene = "";
+    if (options.scene) {
+      let str = decodeURIComponent(options.scene);
+      let arr = str.split('_');
+      scene = arr[1];
     }
-    //调用应用实例的方法获取全局数据
-    if (!app.isLogin()) {
-      app.login().then(loginFlag => {
-        this.setData({
-          login: loginFlag
+    this.setData({
+      qrcode: scene,
+    })
+    console.log('qrcode----->' + this.data.qrcode)
+    //app.login()
+  },
+
+  onGotUserInfo(e) {
+    console.log("nickname=" + e.detail.userInfo.nickName);
+    app.globalData.name = e.detail.userInfo.nickName;
+    let that = this
+    app.login(that.data.qrcode).then(loginFlag => {
+      this.setData({
+        login: loginFlag
+      })
+      console.log("login flag->", that.data.login)
+      if (that.data.login) {
+        let header = app.getHeader();
+        let url = app.getHostUrl() + '/api/user';
+        wx.request({
+          url: url,
+          header: header,
+          success(res) {
+            console.log("user----->" + JSON.stringify(res.data));
+            let team_balance = 0; //团队奖励余额
+            let team_total = 0; //团队奖励
+            let commission_balance = 0; //佣金余额
+            let commission_total = 0; //佣金
+            let active_balance = 0; //动态分红余额
+            let active_total = 0; //动态分红
+            let sale_total = 0; //总销售额
+            let session_key = 0; //微信session_key
+            let qrcode = res.data.data.qrcode;
+            app.globalData.qrcode = res.data.data.qrcode;
+            console.log("qrcode --->" + app.globalData.qrcode);
+          }
         })
-        console.log("login->" + this.data.login);
-      });
-    }
+      }
+    });
   },
   
   onShow: function() {

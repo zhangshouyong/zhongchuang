@@ -6,7 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
     indicatorDots: true,
     vertical: false,
     autoplay: true,
@@ -14,14 +13,14 @@ Page({
     previousMargin: 0,
     nextMargin: 0,
     img_urls: [
-      "/assets/images/jiu_1.jpg",
-      "/assets/images/jiu_2.jpg",
-      "/assets/images/jiu_3.jpg",
-      "/assets/images/jiu_4.jpg",
+      "/assets/images/1.jpeg",
+      "/assets/images/2.jpeg",
+      "/assets/images/3.jpeg",
     ],
     interval: 5000,
     duration: 1000,
     num: 1,
+    item: {}
   },
 
   /**
@@ -108,12 +107,16 @@ Page({
    * 立即购买
    */
   toFirmorder() {
-    app.globalData.curOrder = [];
-    let order = { ...this.data.item }
+    app.globalData.curOrder = {};
+    let order = {};
+    order.items = [];
+    let item = {...this.data.item}
+    item.number = this.data.num;
+    order.items.push(item);
     order.state = 0;
-    order.number = this.data.num;
-
-    app.globalData.curOrder.push(order);
+    order.number = 1;
+    app.globalData.curOrder = order;
+    app.globalData.orderlist.push(order);
     wx.navigateTo({
       url: '/pages/firmorder/firmorder',
     })
@@ -127,7 +130,7 @@ Page({
     item.number = this.data.num;
     item.option = 0;
     item.active = true;
-    //let good = { id: 1, number: 2, price: 3000, pic: "/assets/images/jiu_1.jpg", option: 18, active: false, name: '长城干红' };
+    console.log("addCart item --->" + JSON.stringify(item))
     app.addCart(item);
     wx.showToast({
       title: '加入成功',

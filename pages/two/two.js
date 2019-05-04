@@ -1,18 +1,24 @@
 // pages/two/two.js
+let app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    twoImgUrl: ''
+    twoImgUrl: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    let header = app.getHeader();
+    let url = app.getHostUrl() + "/" + app.globalData.qrcode;
+    console.log("img url ----->", url)
+    this.setData({
+      twoImgUrl: url
+    })
   },
 
   /**

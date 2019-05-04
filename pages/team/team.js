@@ -6,13 +6,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    commission_total: 0,
+    sale_total: 0,
     teams: [{
-      name: 'zsy1',
+      wxname: 'zsy1',
       level: 1,
       date: '2019-03-09'
     },
     {
-      name: 'zsy2',
+      wxname: 'zsy2',
       level: 0,
       date: '2019-03-09'
     }]
@@ -23,19 +25,9 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      commission: app.getCommission(),
-      totalSale: app.getTotalSale(),
+      commission_total: app.getCommission(),
+      sale_total: app.getTotalSale(),
     });
-
-    let that = this;
-    console.log("that---->" + that);
-    wx.request({
-      url: 'https://www.baidu.com',
-      success: function(res) {
-        console.log(res);
-        console.log("this----->" + this);
-      }
-    })
   },
 
   /**

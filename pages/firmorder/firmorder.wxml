@@ -10,7 +10,7 @@
     <view class='btn'>选择其他地址</view>
   </view>
 
-  <view wx:for="{{curOrdder}}" wx:key="{{item.id}}">
+  <view wx:for="{{curOrdder.items}}" wx:key="{{item.id}}">
     <view class='good'>
       <image class="img" src="{{item.pic}}" />
       <view class='goodinfo'>

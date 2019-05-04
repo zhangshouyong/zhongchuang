@@ -13,7 +13,7 @@
     <image
           class='two-img'
           mode="aspectFit"
-          src="../../assets/images/ZHEK.png"
+          src="{{twoImgUrl}}"
         ></image>
   </view>
 </view>

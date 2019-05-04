@@ -5,39 +5,37 @@ Page({
    * 页面的初始数据
    */
   data: {
+    indicatorDots: true,
+    vertical: false,
+    autoplay: true,
+    circular: true,
+    previousMargin: 0,
+    nextMargin: 0,
+    img_urls: [
+      "/assets/images/1.jpeg",
+      "/assets/images/2.jpeg",
+      "/assets/images/3.jpeg",
+    ],
+    interval: 5000,
+    duration: 1000,
     itemlist: [
       {
         "id": 1,
-        "pic": "/assets/images/jiu_1.jpg",
-        "name": "长城干红",
-        "price": 3000,
+        "pic": "/assets/images/1.jpeg",
+        "name": "纱缦缇",
+        "price": 3682,
       },
       {
         "id": 2,
-        "pic": "/assets/images/jiu_2.jpg",
-        "name": "长城干红",
-        "price": 3000,
+        "pic": "/assets/images/2.jpeg",
+        "name": "纱缦缇",
+        "price": 3682,
       },
       {
         "id": 3,
-        "pic": "/assets/images/jiu_1.jpg",
-        "name": "长城干红",
-        "price": 3000,
-      }, {
-        "id": 4,
-        "pic": "/assets/images/jiu_2.jpg",
-        "name": "长城干红",
-        "price": 3000,
-      }, {
-        "id": 5,
-        "pic": "/assets/images/jiu_1.jpg",
-        "name": "长城干红",
-        "price": 3000,
-      }, {
-        "id": 6,
-        "pic": "/assets/images/jiu_2.jpg",
-        "name": "长城干红",
-        "price": 3000,
+        "pic": "/assets/images/3.jpeg",
+        "name": "纱缦缇",
+        "price": 3682,
       }
     ]
   },

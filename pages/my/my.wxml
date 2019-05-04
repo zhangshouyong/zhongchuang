@@ -2,7 +2,7 @@
 <import src="/pages/common/square/square.wxml" />
 <import src='/pages/common/cell/cell' />
 <view class="container page-user">
-  <view bindtap="bindViewTap" class="userinfo btn-bg">
+  <view wx:if='{{login}}' bindtap="bindViewTap" class="userinfo btn-bg">
     <view class="cell-left">
       <open-data wx:if='{{login}}' class="userinfo-avatar" type="userAvatarUrl"></open-data>
       <view style="flex-direction: row">
@@ -21,8 +21,11 @@
       </view>
     </view>
   </view>
+  <view wx:else> 
+  <button open-type='getUserInfo' lang="zh_CN" bindgetuserinfo="onGotUserInfo">请登录</button>
+  </view>
   
-  <view class="kind-container row-list">
+  <view wx:if='{{login}}' class="kind-container row-list">
     <navigator class='item-container' hover-class='hover-bg' url='/pages/order/order?id=1'>
       <template is="square" data="{{imgUrl:'/assets/images/payment.png',title:'待付款'}}" />
     </navigator>
@@ -36,7 +39,7 @@
       <template is="square" data="{{imgUrl:'/assets/images/finish.png',title:'已完成'}}" />
     </navigator>
   </view>
-  <view class='row-list'>
+  <view wx:if='{{login}}' class='row-list'>
     <template wx:if="{{vip}}" is='row-cell' data='{{iconPath:"/assets/images/sale.png",title:"分销中心",bindTap:"toSale"}}' />
     <template wx:else is='row-cell' data='{{iconPath:"/assets/images/sale.png",title:"成为分销商",bindTap:"toBuyVip"}}' />
     <template is='row-cell' data='{{iconPath:"/assets/images/order.png",title:"全部订单",bindTap:"toOrder"}}' />

@@ -1,4 +1,5 @@
 // pages/orderdetail/orderdetail.js
+let app = getApp();
 Page({
 
   /**
@@ -82,30 +83,27 @@ Page({
   onShareAppMessage: function () {
 
   },
-  /* 随机数 */
-   randomString() {
-    var chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
-    var maxPos = chars.length;
-    var pwd = '';
-    for(var i = 0; i< 32; i++) {
-  pwd += chars.charAt(Math.floor(Math.random() * maxPos));
-}
-return pwd;
-},
+  
   /**
    * 支付
    */
   pay() {
+    let curOrder = app.globalData.curOrder;
+    console.log("pa--->" + JSON.stringify(curOrder));
+    
     let that = this;
     let data = {...that.data.paydata};
     wx.requestPayment({
       ...that.data.paydata,
       success(res) { 
         console.log("ssss-->" + JSON.stringify(res))
+        wx.navigateTo({ url: '/pages/order/order', })
       },
       fail(res) { 
         console.log("ffff-->" + JSON.stringify(res))
+        wx.redirectTo({ url: '/pages/order/order', })
       }
     })
+    
   }
 })

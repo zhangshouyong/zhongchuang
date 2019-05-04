@@ -14,10 +14,9 @@ Page({
     previousMargin: 0,
     nextMargin: 0,
     img_urls: [
-      "/assets/images/jiu_1.jpg",
-      "/assets/images/jiu_2.jpg",
-      "/assets/images/jiu_3.jpg",
-      "/assets/images/jiu_4.jpg",
+      "/assets/images/1.jpeg",
+      "/assets/images/2.jpeg",
+      "/assets/images/3.jpeg",
     ],
     interval: 5000,
     duration: 1000,
@@ -97,18 +96,17 @@ Page({
   onShareAppMessage: function () {
 
   },
-  toFirmorder() {
-    let good = { id: 1, number: 2, price: 3000, pic: "/assets/images/jiu_1.jpg", option: 18, active: false, name: '长城干红'};
-    let good2 = { id: 2, number: 3, price: 1500, pic: "/assets/images/jiu_2.jpg", option: 12, active: false, name: '张裕解百纳'};
-    app.addCart(good);
-    app.addCart(good2);
-    let order = [{ id: 1, number: 2, price: 3000, pic: "/assets/images/jiu_1.jpg", state: 0, name: "长城干红" },
-      { id: 2, number: 3, price: 1500, pic: "/assets/images/jiu_2.jpg", state: 0, name: "张裕解百纳"}];
-    app.addOrder(order[0]);
-    app.addOrder(order[1]);
+
+  toFirmorder() {   
+    let order = {};
+    order.items = [];
+    let item = { id: 1, number: this.data.num, price: 3682, pic: "/assets/images/2.jpeg" }
+    order.items.push(item);
+    order.state = 0;
+    order.number = 1;
     app.globalData.curOrder = order;
     wx.navigateTo({
-      url: '/pages/firmorder/firmorder',
+      url: '/pages/firmorder/firmorder?type=1',
     })
   }
 })

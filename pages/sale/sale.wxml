@@ -13,11 +13,11 @@
   <view class='commission'>
     <view class='cell-left view-border-right'>
       <text class='text-font-size30'>累计团队奖励</text>
-      <text class='text-font-size35'>￥ {{commission}}</text>
+      <text class='text-font-size35'>￥ {{team_total}}</text>
     </view>
     <view class='cell-left'>
       <text class='text-font-size30'>累计分红奖励</text>
-      <text class='text-font-size35'>￥ {{totalSale}}</text>
+      <text class='text-font-size35'>￥ {{active_total}}</text>
     </view>
   </view>
 
@@ -30,7 +30,7 @@
           </view>
           <view class='view-text'>
             <text style='font-size: 20rpx'>销售订单</text>
-            <text style='font-size: 20rpx'>{{orderCnt}}个</text>
+            <text style='font-size: 20rpx'>{{payorder_cnt}}个</text>
           </view>
         </view>
       </view>
@@ -59,6 +59,7 @@
           </view>
           <view class='view-text'>
             <text style='font-size: 20rpx'>我的团队</text>
+            <text style='font-size: 20rpx'>{{team_member}}人</text>
           </view>
         </view>
       </view>

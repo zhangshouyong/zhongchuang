@@ -18,8 +18,8 @@
       <view class='order-header order'>下单时间</view>
     </view>
 
-    <view class="container" wx:if="{{payMent.length != 0}}">
-      <view  wx:for="{{payMent}}">
+    <view class="container" wx:if="{{payorderlist.length != 0}}">
+      <view  wx:for="{{payorderlist}}">
         <view class="swiper-container">
           <view class='order-content order'>{{item.name}}</view>
           <view class='order-content order'>{{item.commission}}</view>

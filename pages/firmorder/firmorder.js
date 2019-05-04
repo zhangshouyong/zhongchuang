@@ -7,15 +7,15 @@ Page({
    */
   data: {
     addr: {},
-    curOrdder: [],
+    curOrdder: {},
     totalMoney: 0,
+    type: 2, //1为普通订单  2为推广订单
   },
 
   getTotalMoney: function() {
     let total = 0;
-    let list = app.globalData.curOrder;
-    console.log("list->" + JSON.stringify(list))
-    
+    let list = app.globalData.curOrder.items;
+    console.log("items->>>>>>" + JSON.stringify(list))
     for (let i in list ) {
       total += list[i].price*list[i].number;
     }
@@ -26,20 +26,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let id = 0;
-    if(Object.keys(options).length !=0) {
-      id = options.id
-    } 
-  
-    let curOrder = app.globalData.curOrder;
-
-    let total = this.getTotalMoney();
-    let addrInfo = app.getAddr(id);
-    if (addrInfo) {
+    let type = options.type;
+    if (type == 1) {
       this.setData({
-        addr: {...addrInfo},
+        type: type,
+      })
+    };
+
+    let addrid = 0;
+    let curOrder = app.globalData.curOrder;
+    let total = this.getTotalMoney();
+    if (curOrder) {
+      this.setData({
         curOrdder: curOrder,
         totalMoney: total,
+      });
+    }
+    
+    let addrInfo = app.getAddr(addrid);
+    console.log("addrInfo----->" + addrInfo + "addrid->"+addrid)
+    if (addrInfo) {
+      this.setData({
+        addr: addrInfo?{...addrInfo}: {},
       });
     }
   },
@@ -115,15 +123,19 @@ Page({
   },
 
   toOrderDetail() {
-    let url = app.getHostUrl() + '/api/user/order';
-    let items = this.getOrderItems();
-    let order = {
-      "address": this.data.addr.addr,  "items": items,
-    };
+    let api = "api/user/promotionOrder"; //推广
+    if (this.data.type == 2) {
+      api = "/api/user/order";           //普通
+    }
 
-    console.log("order--->" + JSON.stringify(order));
-    /*
-    let orderData = {"address": this.data.addr.addr, "items":[{"id": 1,"count":2}, {"id":2, "count": 3}]};
+    let url = app.getHostUrl() + api;
+    let items = this.getOrderItems();
+    
+    let order = {
+      "name": this.data.addr.name, "phone": this.data.addr.phone, "address": this.data.addr.addr, "state": 0,  "items": items,
+    };
+  
+    let orderData = {"address": this.data.addr.addr, "items":[{"id": 1,"count":1}]};
     let header = app.getHeader();
     let that = this;
     wx.request({
@@ -132,7 +144,6 @@ Page({
       method: 'POST',
       data: orderData,
       success(res) {
-        console.log("res====>" + JSON.stringify(res));
         wx.setStorageSync("paydata", res.data.data);
         url = '/pages/orderdetail/orderdetail?data=' + JSON.stringify(that.data);
         wx.navigateTo({
@@ -143,7 +154,6 @@ Page({
       fail(res) {
         console.log("fail-->" + JSON.stringify(res));
       }
-    })
-    */
+    });
   }
 })

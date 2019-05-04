@@ -1,20 +1,20 @@
 <view class='space'></view>
-<view wx:for="{{orderlist}}" wx:key="{{}}" class='show'>
+<view wx:for="{{order.items}}"  class='show'>
   <view class='order-item'>
     <image class='img' src='{{item.pic}}' />
     <view class='desc'>
       <view>
         <view>名称：{{item.name}}</view>
-        <view>数量： {{item.number}}</view>
+        <view>数量： {{item.count}}</view>
       </view>
-      <view>{{item.pricce}}</view>
+      <view>{{item.price}}</view>
     </view>
   </view>
 </view>
 
 <view class='order-money'>
   <view>订单价：</view>
-  <view>待付款</view>
+  <view>{{order.state}}</view>
 </view>
 
 <view class='order-detail'>

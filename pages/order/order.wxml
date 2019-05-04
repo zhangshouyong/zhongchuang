@@ -12,7 +12,7 @@
 </view>
 
 <view class='content'>
-  <view class='allorder' wx:for="{{orderlist}}">
+  <view class='allorder' wx:for="{{orderlist}}" wx:for-item="order">
     <include src="../order/template-order.wxml" />
   </view>
 </view>

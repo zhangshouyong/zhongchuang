@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/my/my",
     "pages/tabs/index/index",
     "pages/tabs/movies/movies",
     "pages/setting/setting",
     "pages/search/search",
     "pages/order/order",
-    "pages/home/home",
     "pages/cart/cart",
     "pages/sale/sale",
     "pages/adress/adress",
